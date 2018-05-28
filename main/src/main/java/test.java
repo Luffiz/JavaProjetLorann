@@ -1,5 +1,5 @@
 
 public class test {
 	/*bite trzezehjigfbezibgezig
-	 * ftg connard*/
+	 * ftg connard/ non/*/
 }
