@@ -1,5 +1,5 @@
 
 public class test {
 	/*bite trzezehjigfbezibgezig
-	 * ftg connard/ non/*/
+	 * je deteste mon groupe, que des gay, totues des putes*/
 }
