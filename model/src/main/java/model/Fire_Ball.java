@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class Fire_Ball extends Mobile_Elements{
 	
 	Image Fireball;
-	int StateFireBall = 0;
+	int FireBall_Type = 0;
 	
 	ImageIcon FireBall1 = new ImageIcon("JavaProjetLorann\\sprite\\fireball_1.png");
 	ImageIcon FireBall2 = new ImageIcon("JavaProjetLorann\\sprite\\fireball_2.png");
@@ -22,6 +22,32 @@ public class Fire_Ball extends Mobile_Elements{
 		ImageIcon Fire_ball = new ImageIcon("JavaProjetLorann\\sprite\\fireball_1.png");
 		Fireball = Fire_ball.getImage();
 	}
+		public Image getImage(){
+			switch (FireBall_Type) {
+			
+			case 1:
+				Fireball = FireBall1.getImage();
+			break;
+			
+			case 2:
+				Fireball = FireBall2.getImage();
+			break;
+			
+			case 3:
+				Fireball = FireBall3.getImage();
+			break;
+			
+			case 4:
+				Fireball = FireBall4.getImage();
+			break;
+			
+			case 5:
+				Fireball = FireBall5.getImage();
+			break;
+			}
+		 return Fireball;
+		}
+	
 	
 
 }
