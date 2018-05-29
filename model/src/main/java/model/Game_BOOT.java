@@ -7,18 +7,18 @@ import java.awt.event.KeyListener;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import lorann.model.Bone1;
-import lorann.model.Bone2;
-import lorann.model.Bone3;
-import lorann.model.CrystalBall;
-import lorann.model.FireBall;
-import lorann.model.Lorann;
-import lorann.model.Monster1;
-import lorann.model.Monster2;
-import lorann.model.Monster3;
-import lorann.model.Monster4;
-import lorann.model.OutDoor;
-import lorann.model.Purses;
+import model.BoneS;
+import model.BoneH;
+import model.BoneV;
+import model.CrystalBall;
+import model.Fire_Ball;
+import model.Lorann_Mobile;
+import model.Monster_1;
+import model.Monster_2;
+import model.Monster_3;
+import model.Monster_4;
+import model.Door_out;
+import model.Purse;
 
 
 public class Game_BOOT implements KeyListener{
@@ -31,7 +31,7 @@ public class Game_BOOT implements KeyListener{
 	
 	boolean shoot = false;
 	boolean touch = false;
-	boolean prisond1 = false;
+	boolean prison_d1 = false;
 	boolean prisond2 = false;
 	boolean prisond3 = false;
 	boolean prisond4 = false;
@@ -77,7 +77,7 @@ public class Game_BOOT implements KeyListener{
 			int x=0, y=0, i=0;
 			touch = false;
 			shoot = false;
-			prisond1 = false;
+			prison_d1 = false;
 			prisond2 = false;
 			prisond3 = false;
 			prisond4 = false;
@@ -96,93 +96,101 @@ public class Game_BOOT implements KeyListener{
 			FireBalls = new ArrayList<Fire_Ball>();
 
 
-			while(( i = fr.read()) != -1){
+			while(( i = fr.read()) != -1) {
+				
 				char strImg = (char) i;
 
 				switch(strImg) {
-				case 1:
-					
-				}
-				
-				
-				
-				if(strImg == '0'){
+				case '0':
 					Game [x][y] = "WALLS";
-					bone1 = new Bone1(x*32, y*32);
-					Bones1.add(bone1);
-				}
-				else if(strImg == '1'){
+					boneS = new BoneS(x*32, y*32);
+					BonesS.add(boneS);
+				break;
+				
+				case '1':
 					Game [x][y] = "WALLS";
-					bone2 = new Bone2(x*32, y*32);
-					Bones2.add(bone2);
-				}
-				else if(strImg == '2'){
+					boneH = new BoneH(x*32, y*32);
+					BonesH.add(boneH);
+				break;
+				
+				case '2':
 					Game [x][y] = "WALLS";
-					bone3 = new Bone3(x*32, y*32);
-					Bones3.add(bone3);
-				}
-				else if (strImg == '3'){
+					boneV = new BoneV(x*32, y*32);
+					BonesV.add(boneV);
+				break;
+				
+				case '3':
 					Game [x][y] = "LORANN";
-					lorann = new Lorann (x*32, y*32);
-				}
-				else if (strImg == '4'){
-					Game [x][y] = "CRYSTALBALL";
+					lorann = new Lorann_Mobile(x*32, y*32);
+				break;
+				
+				case '4':
+					Game [x][y] = "CRYSTALLBALL";
 					crystalball = new CrystalBall (x*32, y*32);
 					CrystalBalls.add(crystalball);
-				}
-				else if (strImg == '5'){
-					Game [x][y] = "PURSES";
-					purses = new Purses (x*32, y*32);
-					Pursess.add(purses);
-				}
-				else if(strImg == '6'){
-					Game[x][y] = "MONSTER1";
-					monster1 = new Monster1 (x*32,y*32);
+				break;
+				
+				case '5':
+					Game [x][y] = "PURSE";
+					purses = new Purse(x*32, y*32);
+					Purses.add(purses);
+				break;
+				
+				case '6':
+					Game [x][y] = "MONSTER1";
+					monster1 = new Monster_1(x*32, y*32);
 					Monsters1.add(monster1);
-				}
-				else if(strImg == '7'){
-					Game[x][y] = "MONSTER2";
-					monster2 = new Monster2 (x*32,y*32);
+				break;
+				
+				case '7':
+					Game [x][y] = "MONSTER2";
+					monster2 = new Monster_2(x*32, y*32);
 					Monsters2.add(monster2);
-				}
-				else if(strImg == '8'){
-					Game[x][y] = "MONSTER3";
-					monster3 = new Monster3 (x*32,y*32);
+				break;
+				
+				case '8':
+					Game [x][y] = "MONSTER3";
+					monster3 = new Monster_3(x*32, y*32);
 					Monsters3.add(monster3);
-				}
-				else if(strImg == '9'){
-					Game[x][y] = "MONSTER4";
-					monster4 = new Monster4 (x*32,y*32);
+				break;
+				
+				case '9':
+					Game [x][y] = "MONSTER4";
+					monster4 = new Monster_4(x*32, y*32);
 					Monsters4.add(monster4);
-				}
-				else if(strImg == 'S'){
-					Game[x][y] = "OUTDOOR";
-					outdoor = new OutDoor (x*32,y*32);
-					OutDoors.add(outdoor);
-				}
-
-				else if (strImg == ' '){
-					Game[x][y] = null;
-				}
-				else if (strImg == '\r' || strImg == '\n'){
+				break;
+				
+				case 'S':
+					Game [x][y] = "DOOROUT";
+					outdoor = new Door_out(x*32, y*32);
+					Door_out1.add(outdoor);
+				break;
+				
+				case '_':
+					Game [x][y] = null;
+				break;
+				
+				case '\r':
 					x--;
+				break;
+				
+				case '\n':
+					x--;
+				break;
 				}
-				if (x==23){
+				if (x==23) {
 					y++;
 					x=0;
 				}
 				else {
 					x++;
 				}
-
 			}
 		}
-		catch(Exception ex){
-			repaint();
-		}
-	}
+		catch(Exception ex) {}
 	}
 	
+
 	
 	
 	
