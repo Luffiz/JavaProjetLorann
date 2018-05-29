@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 public class Mobile_Elements {
 	
 	public int x, y;
-	public String Way;
+	public String Way = "DOWN";
 	
 	public int getX() {
 		return x;
