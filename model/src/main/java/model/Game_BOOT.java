@@ -191,13 +191,11 @@ public class Game_BOOT implements KeyListener{
 	}
 	
 
-	
-	
-	
-
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		int Key = e.getKeyCode();
+		int x = 0;
+		int y = 0;
 		
 	}
 
