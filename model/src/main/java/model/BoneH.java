@@ -6,21 +6,21 @@ import javax.swing.ImageIcon;
 
 public class BoneH extends Walls{
 
-	Image BoneS;
+	Image BoneH;
 	
 	public BoneH(int OriginX, int OriginY) {
 		
 		this.x = OriginX;
 		this.y = OriginY;
 		
-		ImageIcon BoneSImg = new ImageIcon("C:\\Users\\pierr\\OneDrive - Association Cesi Viacesi mail\\Projet\\Projet Java\\sprite\\horizontal_bone");
-		BoneS = BoneSImg.getImage();
+		ImageIcon BoneHImg = new ImageIcon("C:\\Users\\pierr\\OneDrive - Association Cesi Viacesi mail\\Projet\\Projet Java\\sprite\\horizontal_bone");
+		BoneH = BoneHImg.getImage();
 	}
 	
 	
 	public Image getImage() {
 		
-		return BoneS;
+		return BoneH;
 		
 	}
 	
