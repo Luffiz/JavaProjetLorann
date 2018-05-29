@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import controller.ControllerFacade;
 import model.ModelFacade;
+import showboard.BoardFrame;
 import view.ViewFacade;
 
 /**
@@ -21,6 +22,8 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
+    	
+    	new BoardFrame("COUCOUC", false);
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
