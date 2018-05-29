@@ -13,7 +13,7 @@ public class BoneH extends Walls{
 		this.x = OriginX;
 		this.y = OriginY;
 		
-		ImageIcon BoneHImg = new ImageIcon("C:\\Users\\pierr\\OneDrive - Association Cesi Viacesi mail\\Projet\\Projet Java\\sprite\\horizontal_bone");
+		ImageIcon BoneHImg = new ImageIcon("JavaProjetLorann\\sprite\\horizontal_bone.png");
 		BoneH = BoneHImg.getImage();
 	}
 	

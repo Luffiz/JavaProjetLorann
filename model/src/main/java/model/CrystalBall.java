@@ -13,7 +13,7 @@ Image CrystalBall;
 		this.x = OriginX;
 		this.y = OriginY;
 		
-		ImageIcon CrystalBallImg = new ImageIcon("C:\\Users\\pierr\\OneDrive - Association Cesi Viacesi mail\\Projet\\Projet Java\\sprite\\crystal_Ball");
+		ImageIcon CrystalBallImg = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\crystal_ball.png");
 		CrystalBall = CrystalBallImg.getImage();
 	}
 	

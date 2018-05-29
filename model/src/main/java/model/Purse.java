@@ -13,7 +13,7 @@ public class Purse extends Uncrossable {
 		this.x = OriginX;
 		this.y = OriginY;
 		
-		ImageIcon PurseImg = new ImageIcon("C:\\Users\\pierr\\OneDrive - Association Cesi Viacesi mail\\Projet\\Projet Java\\sprite\\purse");
+		ImageIcon PurseImg = new ImageIcon("JavaProjetLorann\\sprite\\purse.png");
 		Purse = PurseImg.getImage();
 	}
 	
