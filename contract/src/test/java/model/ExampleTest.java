@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ExampleTest {
-    private Example example;
+    private Map example;
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
@@ -21,7 +21,7 @@ public class ExampleTest {
 
     @Before
     public void setUp() throws Exception {
-        this.example = new Example(1, "Example test");
+        this.example = new Map(1, "Example test");
     }
 
     @After
@@ -37,16 +37,16 @@ public class ExampleTest {
     @Test
     public void testGetName() {
         final String expected = "Example test";
-        assertEquals(expected, this.example.getName());
+        assertEquals(expected, this.example.getMap());
     }
 
     @Test
     public void testSetName() {
         String expected = "Example test";
-        assertEquals(expected, this.example.getName());
+        assertEquals(expected, this.example.getMap());
         expected = "Example test modified";
         this.example.setName(expected);
-        assertEquals(expected, this.example.getName());
+        assertEquals(expected, this.example.getMap());
     }
 
     @Test

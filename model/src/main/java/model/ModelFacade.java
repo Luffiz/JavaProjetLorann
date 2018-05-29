@@ -3,7 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.dao.ExampleDAO;
+import model.dao.MapDAO;
+import model.dao.MapInitDAO;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -25,8 +26,8 @@ public final class ModelFacade implements IModel {
      * @see model.IModel#getExampleById(int)
      */
     @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
+    public Map getMapById(final int id) throws SQLException {
+        return MapDAO.getMapById(id);
     }
 
     /*
@@ -34,8 +35,8 @@ public final class ModelFacade implements IModel {
      * @see model.IModel#getExampleByName(java.lang.String)
      */
     @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
+    public Map getExampleByName(final String name) throws SQLException {
+        return MapDAO.getExampleByName(name);
     }
 
     /*
@@ -43,8 +44,19 @@ public final class ModelFacade implements IModel {
      * @see model.IModel#getAllExamples()
      */
     @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
+    public List<Map> getAllExamples() throws SQLException {
+        return MapDAO.getAllExamples();
     }
+    
+
+    
+    /*
+     * (non-Javadoc)
+     * @see model.IModel#getMapAll()
+     */
+    public List<MapInit> getMapAll() throws SQLException {
+        return MapInitDAO.getMapAll();
+    }
+    
 
 }

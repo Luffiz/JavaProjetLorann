@@ -6,26 +6,26 @@ package model;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class Example {
+public class Map {
 
     /** The id. */
     private final int id;
 
     /** The name. */
-    private String    name;
+    private String map;
 
     /**
      * Instantiates a new example.
      *
      * @param id
      *            the id
-     * @param name
+     * @param map
      *            the name
      */
-    public Example(final int id, final String name) {
+    public Map(final int id, final String map) {
         super();
         this.id = id;
-        this.name = name;
+        this.map = map;
     }
 
     /**
@@ -42,8 +42,8 @@ public class Example {
      *
      * @return the name
      */
-    public String getName() {
-        return this.name;
+    public String getMap() {
+        return this.map;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Example {
      *            the new name
      */
     public void setName(final String name) {
-        this.name = name;
+        this.map = name;
     }
 
     /*
@@ -62,6 +62,6 @@ public class Example {
      */
     @Override
     public String toString() {
-        return this.getId() + " : " + this.getName();
+        return /*this.getId() + " : " + */this.getMap();
     }
 }
