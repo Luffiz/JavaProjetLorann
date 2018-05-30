@@ -90,10 +90,6 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		
 }
 	
-	public void Menu_level() {
-				
-		Menu_Level();
-	}
 	
 	public void Menu_Level() {
 		try{
@@ -330,132 +326,85 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	public void KeyDown(){
+		lorann.setWay("DOWN");
 		if (! CheckCollision("DOWN")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("DOWN");
-									lorann.move();
-									Objectif();
-								}
+				if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+								lorann.move();
+								Objectif();
 							}
 						}
 					}
-				}
-	}
+					
 
 	public void KeyUp(){
+		lorann.setWay("UP");
 		if (! CheckCollision("UP")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("UP");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.setWay("UP");
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyRight(){
+		lorann.setWay("RIGHT");
 		if (! CheckCollision("RIGHT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("RIGHT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyLeft(){
+		lorann.setWay("LEFT");
 		if (! CheckCollision("LEFT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									System.out.println("TEST");
-									lorann.setWay("LEFT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyUpLeft(){
+		lorann.setWay("UPLEFT");
 		if (! CheckCollision("UPLEFT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("UPLEFT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyUpRight(){
+		lorann.setWay("UPRIGHT");
 		if (! CheckCollision("UPRIGHT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("UPRIGHT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyDownLeft(){
+		lorann.setWay("DOWNLEFT");
 		if (! CheckCollision("DOWNLEFT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("DOWNLEFT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 
 	public void KeyDownRight(){
+		lorann.setWay("DOWNRIGHT");
 		if (! CheckCollision("DOWNRIGHT")){
-					if (! MonsterEat(monster1)){
-						if (! MonsterEat(monster2)){
-							if (! MonsterEat(monster3)){
-								if (! MonsterEat(monster4)){
-									lorann.setWay("DOWNRIGHT");
-									lorann.move();
-									Objectif();
-								}
-							}
-						}
-					}
-				}
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+				lorann.move();
+				Objectif();
+			}
+		}
 	}
 	public void ShootFireBall(int x, int y) {
 		if (shoot == false){
@@ -539,142 +488,248 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	
 public void FollowShoot(){
 		
-		
+	 String FireBallWay = fireball.getWay();	
+	
 		if (shoot == true){
 			if (fireball.FireBall_Type > 4)
 				fireball.FireBall_Type = 0;
-			if (fireball.getWay() == "RIGHT"){
-				if (CheckFireBall("RIGHT") == false && touch == false){
+			
+			switch (FireBallWay) {
+			
+			case "RIGHT":
+					if (CheckFireBall("RIGHT") == false && touch == false)
+					{
+						fireball.FireBall_Type++;
+						fireball.move();
+					}
+					else 
+					{
+						CheckFireBall(fireball.getWay());
+						fireball.FireBall_Type++;
+						pathToLorann1(fireball);
+						FireBallRemove();
+					}
+			break;
+			
+			case "LEFT":
+					if (CheckFireBall("LEFT") == false && touch == false)
+					{
+						fireball.FireBall_Type++;
+						fireball.move();
+					}
+					else 
+					{
+						CheckFireBall(fireball.getWay());
+						fireball.FireBall_Type++;
+						pathToLorann1(fireball);
+						FireBallRemove();
+					}
+			break;
+			
+			case "UP":
+				if (CheckFireBall("UP") == false && touch == false)
+				{
 					fireball.FireBall_Type++;
 					fireball.move();
 				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
+				else 
+				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
 					pathToLorann1(fireball);
 					FireBallRemove();
 				}
+			break;
+			
+			case "DOWN":
+				if (CheckFireBall("DOWN") == false && touch == false)
+				{
+					fireball.FireBall_Type++;
+					fireball.move();
+				}
+				else 
+				{
+					CheckFireBall(fireball.getWay());
+					fireball.FireBall_Type++;
+					pathToLorann1(fireball);
+					FireBallRemove();
+				}
+			break;
+			
+			case "DOWNLEFT":
+				if (CheckFireBall("DOWNLEFT") == false && touch == false)
+				{
+					fireball.FireBall_Type++;
+					fireball.move();
+				}
+				else 
+				{
+					CheckFireBall(fireball.getWay());
+					fireball.FireBall_Type++;
+					pathToLorann1(fireball);
+					FireBallRemove();
+				}
+			break;
+			
+			case "DOWNRIGHT":
+				if (CheckFireBall("DOWNRIGHT") == false && touch == false)
+				{
+					fireball.FireBall_Type++;
+					fireball.move();
+				}
+				else 
+				{
+					CheckFireBall(fireball.getWay());
+					fireball.FireBall_Type++;
+					pathToLorann1(fireball);
+					FireBallRemove();
+				}
+			break;
+			
+			case "UPRIGHT":
+				if (CheckFireBall("UPRIGHT") == false && touch == false)
+				{
+					fireball.FireBall_Type++;
+					fireball.move();
+				}
+				else 
+				{
+					CheckFireBall(fireball.getWay());
+					fireball.FireBall_Type++;
+					pathToLorann1(fireball);
+					FireBallRemove();
+				}
+			break;
+			
+			case "UPLEFT":
+				if (CheckFireBall("UPLEFT") == false && touch == false)
+				{
+					fireball.FireBall_Type++;
+					fireball.move();
+				}
+				else 
+				{
+					CheckFireBall(fireball.getWay());
+					fireball.FireBall_Type++;
+					pathToLorann1(fireball);
+					FireBallRemove();
+				}
+			break;
 			}
-			else if (fireball.getWay() == "LEFT"){
+		}	
+	}
 
-				if (CheckFireBall("LEFT") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
+public boolean CheckFireBall(String direction){
 
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-			}
-			else if (fireball.getWay() == "UP"){
-				if (CheckFireBall("UP") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-
-			}
-			else if (fireball.getWay() == "DOWN"){
-				if (CheckFireBall("DOWN") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-			}
-			else if (fireball.getWay() == "DOWNLEFT"){
-				if (CheckFireBall("DOWNLEFT") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-			}
-			else if (fireball.getWay() == "DOWNRIGHT"){
-				if (CheckFireBall("DOWNRIGHT") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-			}
-			else if (fireball.getWay() == "UPRIGHT"){
-				if (CheckFireBall("UPRIGHT") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
-			}
-			else if (fireball.getWay() == "UPLEFT"){
-				if (CheckFireBall("UPLEFT") == false && touch == false){
-					fireball.FireBall_Type++;
-					fireball.move();
-				}
-				else {
-					touch = true;
-				}
-
-				if (touch == true){
-					CheckFireBall(fireball.getWay());
-					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
-					FireBallRemove();
-				}
+	if (shoot == true){
+		Rectangle sortilegesRec;
+		sortilegesRec = fireball.getBounds();
+		
+		switch (direction) 
+		{
+			case "RIGHT":
+				sortilegesRec.setBounds(sortilegesRec.x +32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "LEFT":
+				sortilegesRec.setBounds(sortilegesRec.x -32, sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "UP":
+				sortilegesRec.setBounds(sortilegesRec.x, sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "DOWN":
+				sortilegesRec.setBounds(sortilegesRec.x, sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "DOWNLEFT":
+				sortilegesRec.setBounds(sortilegesRec.x -32, sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "DOWNRIGHT":
+				sortilegesRec.setBounds(sortilegesRec.x +32, sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "UPLEFT":
+				sortilegesRec.setBounds(sortilegesRec.x -32, sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
+			break;
+			case "UPRIGHT":
+				sortilegesRec.setBounds(sortilegesRec.x +32, sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
+			break;
+		}
+		
+		for(int i=0;i<BonesS.size();i++){
+			boneS = (BoneS) BonesS.get(i);
+			Rectangle bone1Rec = boneS.getBounds();
+			if(sortilegesRec.intersects(bone1Rec)){
+				return true;
 			}
 		}
+		for(int i=0;i<BonesH.size();i++){
+			boneH = (BoneH) BonesH.get(i);
+			Rectangle bone2Rec = boneH.getBounds();
+			if(sortilegesRec.intersects(bone2Rec)){
+				return true;
+			}
+		}
+		for(int i=0;i<BonesV.size();i++){
+			boneV = (BoneV) BonesV.get(i);
+			Rectangle bone3Rec = boneV.getBounds();
+			if(sortilegesRec.intersects(bone3Rec)){
+				return true;
+			}
+		}
+
+			for(int i=0;i<Monsters1.size();i++){
+				monster1 = (Monster_1) Monsters1.get(i);
+				Rectangle monster1Rec = monster1.getBounds();
+				if(sortilegesRec.intersects(monster1Rec)){
+					touch = true;
+					prison_d1 = true;
+					monster1.setX(33);
+					monster1.setY(385);
+					Monsters1.remove(0);
+					return true;
+				}
+			}
+
+			for(int i=0;i<Monsters2.size();i++){
+				monster2 = (Monster_2) Monsters2.get(i);
+				Rectangle monster2Rec = monster2.getBounds();
+				if(sortilegesRec.intersects(monster2Rec)){
+					touch = true;
+					prison_d2 = true;
+					monster2.setX(97);
+					monster2.setY(385);
+					Monsters2.remove(0);
+					return true;
+				}
+			}
+
+			for(int i=0;i<Monsters3.size();i++){
+				monster3 = (Monster_3) Monsters3.get(i);
+				Rectangle monster3Rec = monster3.getBounds();
+				if(sortilegesRec.intersects(monster3Rec)){
+					touch = true;
+					prison_d3 = true;
+					monster3.setX(161);
+					monster3.setY(385);
+					Monsters3.remove(0);
+					return true;
+				}
+			}
+			for(int i=0;i<Monsters4.size();i++){
+				monster4 = (Monster_4) Monsters4.get(i);
+				Rectangle monster4Rec = monster4.getBounds();
+				if(sortilegesRec.intersects(monster4Rec)){
+					touch = true;
+					prison_d4 = true;
+					monster4.setX(225);
+					monster4.setY(385);
+					Monsters4.remove(0);
+					return true;
+				}
+			}
+		
 	}
+	return false;
+}
+
 public boolean CheckCollision(String direction){
 	Rectangle lorannRec;
 	lorannRec = lorann.getBounds();
@@ -736,6 +791,9 @@ public boolean CheckCollision(String direction){
 	}
 	return false;
 }
+
+
+
 public boolean MonsterEat(Mobile_Elements mobile){
 	Rectangle mobileRec;
 	mobileRec = mobile.getBounds();
@@ -905,7 +963,7 @@ public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 		}
 	}
 
-
+	
 		if (mobile == monster1){
 			for (int i=0; i<FireBalls.size(); i++){
 				fireball = (Fire_Ball) FireBalls.get(i);
@@ -965,113 +1023,7 @@ public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 		}
 	return false;
 }
-public boolean CheckFireBall(String direction){
 
-	if (shoot == true){
-		Rectangle sortilegesRec;
-		sortilegesRec = fireball.getBounds();
-
-		if (direction == "RIGHT"){
-			sortilegesRec.setBounds(sortilegesRec.x +32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "LEFT"){
-			sortilegesRec.setBounds(sortilegesRec.x -32, sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "UP"){
-			sortilegesRec.setBounds(sortilegesRec.x,sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "DOWN"){
-			sortilegesRec.setBounds(sortilegesRec.x ,sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "DOWNLEFT"){
-			sortilegesRec.setBounds(sortilegesRec.x - 32 ,sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "DOWNRIGHT"){
-			sortilegesRec.setBounds(sortilegesRec.x + 32,sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "UPLEFT"){
-			sortilegesRec.setBounds(sortilegesRec.x - 32,sortilegesRec.y - 32, sortilegesRec.width, sortilegesRec.height);
-		}
-		else if (direction == "UPRIGHT"){
-			sortilegesRec.setBounds(sortilegesRec.x + 32,sortilegesRec.y - 32, sortilegesRec.width, sortilegesRec.height);
-		}
-
-		for(int i=0;i<BonesS.size();i++){
-			boneS = (BoneS) BonesS.get(i);
-			Rectangle bone1Rec = boneS.getBounds();
-			if(sortilegesRec.intersects(bone1Rec)){
-				return true;
-			}
-		}
-		for(int i=0;i<BonesH.size();i++){
-			boneH = (BoneH) BonesH.get(i);
-			Rectangle bone2Rec = boneH.getBounds();
-			if(sortilegesRec.intersects(bone2Rec)){
-				return true;
-			}
-		}
-		for(int i=0;i<BonesV.size();i++){
-			boneV = (BoneV) BonesV.get(i);
-			Rectangle bone3Rec = boneV.getBounds();
-			if(sortilegesRec.intersects(bone3Rec)){
-				return true;
-			}
-		}
-
-			for(int i=0;i<Monsters1.size();i++){
-				monster1 = (Monster_1) Monsters1.get(i);
-				Rectangle monster1Rec = monster1.getBounds();
-				if(sortilegesRec.intersects(monster1Rec)){
-					touch = true;
-					prison_d1 = true;
-					monster1.setX(33);
-					monster1.setY(385);
-					Monsters1.remove(0);
-					return true;
-				}
-			}
-
-			for(int i=0;i<Monsters2.size();i++){
-				monster2 = (Monster_2) Monsters2.get(i);
-				Rectangle monster2Rec = monster2.getBounds();
-				if(sortilegesRec.intersects(monster2Rec)){
-					touch = true;
-					prison_d2 = true;
-					monster2.setX(97);
-					monster2.setY(385);
-					Monsters2.remove(0);
-					return true;
-				}
-			}
-
-			for(int i=0;i<Monsters3.size();i++){
-				monster3 = (Monster_3) Monsters3.get(i);
-				Rectangle monster3Rec = monster3.getBounds();
-				if(sortilegesRec.intersects(monster3Rec)){
-					touch = true;
-					prison_d3 = true;
-					monster3.setX(161);
-					monster3.setY(385);
-					Monsters3.remove(0);
-					return true;
-				}
-			}
-			for(int i=0;i<Monsters4.size();i++){
-				monster4 = (Monster_4) Monsters4.get(i);
-				Rectangle monster4Rec = monster4.getBounds();
-				if(sortilegesRec.intersects(monster4Rec)){
-					touch = true;
-					prison_d4 = true;
-					monster4.setX(225);
-					monster4.setY(385);
-					Monsters4.remove(0);
-					return true;
-				}
-			}
-		
-	}
-	return false;
-}
 public void pathToLorann1(Mobile_Elements mobile){
 
 	int PlusRapide;
