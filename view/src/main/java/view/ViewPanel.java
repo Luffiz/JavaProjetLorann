@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 import showboard.IPawn;
 import showboard.ISquare;
-import controller.ControllerFacade;
 import model.BoneH;
 import model.BoneS;
 import model.BoneV;
@@ -69,7 +68,6 @@ public class ViewPanel extends JPanel implements Observer {
 
     /** The pawns represents a list of all the pawns on the board. */
     private final List<IPawn>   pawns;
-    private ControllerFacade Map;
     /**
      * The dimension is used to known the width and the height of the board. It's used principally
      * with the squares property

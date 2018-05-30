@@ -24,10 +24,10 @@ import model.Monster_3;
 import model.Monster_4;
 import model.Door_out;
 import model.Purse;
-import view.ViewPanel;
+//import view.ViewPanel;
 
 
-public class Game_BOOT implements KeyListener {
+public class Game_BOOT extends JPanel implements KeyListener {
 	
 	
 	/**
@@ -72,11 +72,11 @@ public class Game_BOOT implements KeyListener {
 	Fire_Ball fireball;
 	Font Font_level = new Font("Arial", Font.BOLD, 30);
 	FileReader fr;
-	ViewPanel view;
+	//ViewPanel view;
 	
 
 	public Game_BOOT (){
-		
+		this.setBackground(Color.BLACK);
 		Menu_Level();
 		
 }
@@ -198,10 +198,10 @@ public class Game_BOOT implements KeyListener {
 			}
 		}
 		catch(Exception ex) {
-			view.repaint();
+			repaint();
 		}
 	}
-	/*public void paint (Graphics g){
+	public void paint (Graphics g){
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 
@@ -256,7 +256,7 @@ public class Game_BOOT implements KeyListener {
 		g.drawString("LEVEL : " + level + " / Gold : " + gold + " / Lifes : " + lifes,240, 400);
 
 		repaint();
-	}*/
+	}
 
 	
 

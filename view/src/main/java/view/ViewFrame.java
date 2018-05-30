@@ -20,7 +20,7 @@ public class ViewFrame extends JFrame implements IBoard {
 
     /** The initial frame size. */
     private static final int  defaultFrameSize = 700;
-    private final ViewPanel viewPanel;
+    private  ViewPanel viewPanel;
 
     /** The board panel. */
 
@@ -40,8 +40,9 @@ public class ViewFrame extends JFrame implements IBoard {
 		this.setSize(800, 550);//definie taille de la fenetre (ici on veux 12 images de 34 px)
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.viewPanel = new ViewPanel();
-		this.add(viewPanel);
+		this.add(new Game_BOOT());
+		/*this.viewPanel = new ViewPanel();
+		this.add(viewPanel);*/
 		this.setVisible(true);
 		this.setResizable(false);
 		
