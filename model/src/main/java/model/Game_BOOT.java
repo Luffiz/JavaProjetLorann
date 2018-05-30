@@ -28,6 +28,8 @@ import model.Door_out;
 import model.Purse;
 //import view.ViewPanel;
 
+import model.*;
+
 
 public class Game_BOOT extends JPanel implements KeyListener {
 	
@@ -59,6 +61,8 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	private static ArrayList<Monster_4> Monsters4;
 	private static ArrayList<Door_out> Door_out1;
 	private static ArrayList<Fire_Ball> FireBalls;
+	
+	private static String map;
 
 	BoneS boneS;
 	BoneV boneV;
@@ -76,19 +80,23 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	FileReader fr;
 	
 
-	public Game_BOOT (){
+	public Game_BOOT (String map){
+		
+		this.map = map;
 		this.setBackground(Color.BLACK);
 		Menu_Level();
 		setFocusable(true);
 		addKeyListener(this);
-		System.out.println("hello");
 		
 }
-
+	
+	public void Menu_level() {
+				
+		Menu_Level();
+	}
+	
 	public void Menu_Level() {
 		try{
-			int numero = 3;
-			fr = new FileReader("C:\\Users\\pierr\\git\\JavaProjetLorann\\Maps\\level"+numero+".level");
 			int x=0, y=0, i=0;
 			touch = false;
 			shoot = false;
@@ -110,10 +118,14 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			Door_out1 = new ArrayList<Door_out>();
 			FireBalls = new ArrayList<Fire_Ball>();
 
+			
 
-			while(( i = fr.read()) != -1) {
+			//String str = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
+			String str = this.map;
+			
+			for (int t = 0; t < str.length() ; t++) {
 				
-				char strImg = (char) i;
+				char strImg = str.charAt(t);
 
 				switch(strImg) {
 				case '0':
@@ -270,17 +282,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		int Key = arg0.getKeyChar();
 		int x=0;
 		int y = 0;
-		System.out.println("Pre-Detection");
-		System.out.println(Key);
-System.out.println(KeyEvent.VK_S);
-System.out.println(KeyEvent.VK_5);
 
 
 		
 		if (Key == KeyEvent.VK_S || Key == KeyEvent.VK_5){
-			System.out.println("Pre-KeyDown");
 			KeyDown();
-			System.out.println("Post-KeyDown");
 			PathFinding();
 		}
 		else if (Key == KeyEvent.VK_Z || Key == KeyEvent.VK_UP){
@@ -324,7 +330,6 @@ System.out.println(KeyEvent.VK_5);
 	}
 	
 	public void KeyDown(){
-		System.out.println("KeyDown");
 		if (! CheckCollision("DOWN")){
 					if (! MonsterEat(monster1)){
 						if (! MonsterEat(monster2)){

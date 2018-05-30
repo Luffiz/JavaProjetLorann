@@ -1,9 +1,7 @@
 package controller;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import model.MapInit;
 import model.IModel;
 import view.IView;
 
@@ -21,7 +19,7 @@ public class ControllerFacade implements IController {
     /** The model. */
     private final IModel model;
 
-    public String testMap;
+    public String map;
     /**
      * Instantiates a new controller facade.
      *
@@ -45,22 +43,10 @@ public class ControllerFacade implements IController {
     public void start() throws SQLException {
     	
     	
-    	this.testMap = this.getModel().getMapById(1).toString();
-    	System.out.println(getTestMap());
-    	//this.getView().displayMessage(this.getModel().getMapById(1).toString());
     	
-    	/*
-        this.getView().displayMessage(this.getModel().getExampleById(1).toString());
+    	this.map = this.getModel().getMapById(3).toString();
+    	System.out.println(getMap());
 
-        this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
-
-        final List<Example> examples = this.getModel().getAllExamples();
-        final StringBuilder message = new StringBuilder();
-        for (final Example example : examples) {
-            message.append(example);
-            message.append('\n');
-        }
-        this.getView().displayMessage(message.toString());*/
     }
 
     /**
@@ -81,7 +67,7 @@ public class ControllerFacade implements IController {
         return this.model;
     }
     
-    public String getTestMap(){
-        return this.testMap;
+    public String getMap(){
+        return this.map;
     }
 }

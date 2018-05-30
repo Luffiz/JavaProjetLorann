@@ -34,13 +34,13 @@ public class ViewFrame extends JFrame implements IBoard {
      * @param decorated
      *            the decorated
      */
-    public ViewFrame() {
+    public ViewFrame(String map) {
     	
     	this.setTitle("Lorann");
 		this.setSize(800, 550);//definie taille de la fenetre (ici on veux 12 images de 34 px)
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.add(new Game_BOOT());
+		this.add(new Game_BOOT(map));
 		/*this.viewPanel = new ViewPanel();
 		this.add(viewPanel);*/
 		this.setVisible(true);

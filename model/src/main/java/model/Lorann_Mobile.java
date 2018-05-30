@@ -10,21 +10,21 @@ public class Lorann_Mobile extends Mobile_Elements {
 	
 	
 	Image LorannImg;
-	ImageIcon LorannDown = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_b.png");
-	ImageIcon LorannDownLeft = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_bl.png");
-	ImageIcon LorannDownRight = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_br.png");
-	ImageIcon LorannRight = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_r.png");
-	ImageIcon LorannLeft = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_l.png");
-	ImageIcon LorannUp = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_u.png");
-	ImageIcon LorannUpLeft = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_ul.png");
-	ImageIcon LorannUpRight = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_ur.png");
+	ImageIcon LorannDown = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_b.png");
+	ImageIcon LorannDownLeft = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_bl.png");
+	ImageIcon LorannDownRight = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_br.png");
+	ImageIcon LorannRight = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_r.png");
+	ImageIcon LorannLeft = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_l.png");
+	ImageIcon LorannUp = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_u.png");
+	ImageIcon LorannUpLeft = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_ul.png");
+	ImageIcon LorannUpRight = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_ur.png");
 	
 	
 	public Lorann_Mobile(int OriginX,int OriginY){
 		this.x = OriginX;
 		this.y = OriginY;
 		
-		ImageIcon Lorann_Img = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_b.png");
+		ImageIcon Lorann_Img = new ImageIcon("C:\\Users\\ptorc\\git\\JavaProjetLorann\\sprite\\lorann_b.png");
 		LorannImg = Lorann_Img.getImage();
 	}
 	

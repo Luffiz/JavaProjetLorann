@@ -25,15 +25,18 @@ public abstract class Main {
      */
     public static void main(final String[] args) {
     	
-    	view.ViewFrame frm = new view.ViewFrame();
+    	//view.ViewFrame frm = new view.ViewFrame();
 
-    	/*final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-
+    	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    	
         try {
             controller.start();
+
+    		//System.out.println(controller.getMap());
+            view.ViewFrame frm = new view.ViewFrame(controller.getMap());
         } catch (final SQLException exception) {
             exception.printStackTrace();
-        }*/
+        }
     }
 
 }

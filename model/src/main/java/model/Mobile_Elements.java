@@ -40,7 +40,6 @@ public class Mobile_Elements {
 				this.moveRight();
 				break;
 			case "DOWN":
-				System.out.println("DOWN");
 				this.moveDown();
 				break;
 			case "LEFT":
