@@ -6,6 +6,8 @@ import controller.ControllerFacade;
 import model.ModelFacade;
 import showboard.BoardFrame;
 import view.ViewFacade;
+import view.ViewFrame;
+
 
 /**
  * <h1>The Class Main.</h1>
@@ -23,7 +25,9 @@ public abstract class Main {
      */
     public static void main(final String[] args) {
     	
-    	new BoardFrame("COUCOUC", false);
+    	view.ViewFrame frm = new view.ViewFrame();
+
+    	
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
@@ -34,3 +38,4 @@ public abstract class Main {
     }
 
 }
+

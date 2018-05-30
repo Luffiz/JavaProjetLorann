@@ -12,8 +12,8 @@ public class Door_out {
 	
 	
 	String State = "CLOSED";
-	ImageIcon DoorClosed = new ImageIcon("JavaProjetLorann\\sprite\\gate_closed.png");
-	ImageIcon DoorOpen = new ImageIcon("JavaProjetLorann\\sprite\\gate_open.png");
+	ImageIcon DoorClosed = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\gate_closed.png");
+	ImageIcon DoorOpen = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\gate_open.png");
 	
 	public Door_out (int OriginX, int OriginY) {
 		x = OriginX;

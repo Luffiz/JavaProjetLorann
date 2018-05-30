@@ -1,5 +1,6 @@
 package showboard;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.util.Observer;
@@ -47,6 +48,7 @@ public class BoardFrame extends JFrame implements IBoard {
     public BoardFrame(final String title, final Boolean decorated) {
         super();
         this.setTitle(title);
+        this.setBackground(Color.BLACK);
         this.setSize(defaultFrameSize, defaultFrameSize);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
