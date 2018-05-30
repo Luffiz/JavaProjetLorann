@@ -4,6 +4,9 @@ import java.sql.SQLException;
 
 import model.IModel;
 import view.IView;
+import javax.swing.JButton;
+
+
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
@@ -40,11 +43,12 @@ public class ControllerFacade implements IController {
      * @throws SQLException
      *             the SQL exception
      */
-    public void start() throws SQLException {
+   
+    public void start(int lvl) throws SQLException {
     	
     	
     	
-    	this.map = this.getModel().getMapById(3).toString();
+    	this.map = this.getModel().getMapById(lvl).toString();
     	System.out.println(getMap());
 
     }

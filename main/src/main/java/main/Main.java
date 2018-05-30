@@ -7,7 +7,7 @@ import model.ModelFacade;
 import showboard.BoardFrame;
 import view.ViewFacade;
 import view.ViewFrame;
-
+import view.Menu;
 
 /**
  * <h1>The Class Main.</h1>
@@ -29,11 +29,14 @@ public abstract class Main {
 
     	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
     	
+    	int choix = 0;
+    	
         try {
-            controller.start();
+        	Menu menu = new Menu();
+            controller.start(1);
 
     		//System.out.println(controller.getMap());
-            view.ViewFrame frm = new view.ViewFrame(controller.getMap());
+            //view.ViewFrame frm = new view.ViewFrame(controller.getMap());
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }
