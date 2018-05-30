@@ -20,9 +20,9 @@ public class Lorann_Mobile extends Mobile_Elements {
 	ImageIcon LorannUpRight = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_ur.png");
 	
 	
-	public Lorann_Mobile(int Startx,int Starty){
-		this.x = Startx;
-		this.y = Starty;
+	public Lorann_Mobile(int OriginX,int OriginY){
+		this.x = OriginX;
+		this.y = OriginY;
 		
 		ImageIcon Lorann_Img = new ImageIcon("C:\\Users\\pierr\\git\\JavaProjetLorann\\sprite\\lorann_b.png");
 		LorannImg = Lorann_Img.getImage();

@@ -26,7 +26,7 @@ public class Mobile_Elements {
 		this.Way = way;
 	}
 	
-	public Rectangle getBounds(){ //pour les collision
+	public Rectangle getBounds() { //pour les collisions
 		Rectangle HitBox = new Rectangle(x,y,32,32);
 		return HitBox;
 	}
@@ -40,6 +40,7 @@ public class Mobile_Elements {
 				this.moveRight();
 				break;
 			case "DOWN":
+				System.out.println("DOWN");
 				this.moveDown();
 				break;
 			case "LEFT":
