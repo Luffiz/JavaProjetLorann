@@ -49,7 +49,7 @@ public class ControllerFacade implements IController {
     	
     	
     	this.map = this.getModel().getMapById(lvl).toString();
-    	System.out.println(getMap());
+    	//System.out.println(getMap());
 
     }
 

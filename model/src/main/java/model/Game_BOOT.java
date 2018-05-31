@@ -406,6 +406,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			}
 		}
 	}
+	
 	public void ShootFireBall(int x, int y) {
 		if (shoot == false){
 					shoot = true;
