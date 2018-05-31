@@ -32,11 +32,11 @@ public abstract class Main {
     	int choix = 0;
     	
         try {
-        	Menu menu = new Menu();
+        	//Menu menu = new Menu();
             controller.start(1);
 
     		//System.out.println(controller.getMap());
-            //view.ViewFrame frm = new view.ViewFrame(controller.getMap());
+            view.ViewFrame frm = new view.ViewFrame(controller.getMap());
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }

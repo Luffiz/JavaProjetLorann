@@ -26,7 +26,6 @@ import model.Monster_3;
 import model.Monster_4;
 import model.Door_out;
 import model.Purse;
-//import view.ViewPanel;
 
 import model.*;
 
@@ -274,154 +273,191 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-		int Key = arg0.getKeyChar();
+	public void keyTyped(KeyEvent e) {
+		int Key = e.getKeyChar();
 		int x=0;
 		int y = 0;
 
 
 		
-		if (Key == KeyEvent.VK_S || Key == KeyEvent.VK_5){
+		if (Key == KeyEvent.VK_S || Key == KeyEvent.VK_5)
+		{
 			KeyDown();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_Z || Key == KeyEvent.VK_UP){
+		else if (Key == KeyEvent.VK_Z || Key == KeyEvent.VK_UP)
+		{
 			KeyUp();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_D || Key == KeyEvent.VK_RIGHT){			
+		else if (Key == KeyEvent.VK_D || Key == KeyEvent.VK_RIGHT)
+		{			
 			KeyRight();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_Q || Key == KeyEvent.VK_LEFT){
+		else if (Key == KeyEvent.VK_Q || Key == KeyEvent.VK_LEFT)
+		{
 			KeyLeft();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_A){
+		else if (Key == KeyEvent.VK_A)
+		{
 			KeyUpLeft();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_E){
+		else if (Key == KeyEvent.VK_E)
+		{
 			KeyUpRight();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_W){
+		else if (Key == KeyEvent.VK_W)
+		{
 			KeyDownLeft();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_C){
+		else if (Key == KeyEvent.VK_C)
+		{
 			KeyDownRight();
 			PathFinding();
 		}
-		else if (Key == KeyEvent.VK_SPACE){
+		else if (Key == KeyEvent.VK_SPACE)
+		{
 			ShootFireBall(x, y);
 		}
-		else if (Key == KeyEvent.VK_R){
+		else if (Key == KeyEvent.VK_R)
+		{
 			Menu_Level();
 		}
-		if (lifes == 0){			
+		if (lifes == 0)
+		{			
 			GameOverScreen();
 		}
 		repaint();
 	}
 	
-	public void KeyDown(){
+	public void KeyDown()
+	{
 		lorann.setWay("DOWN");
-		if (! CheckCollision("DOWN")){
-				if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
-								lorann.move();
-								Objectif();
-							}
-						}
-					}
+		if (! CheckCollision("DOWN")) 
+		{
+				if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+				{
+					lorann.move();
+					Objectif();
+				}
+		}
+	}
 					
 
-	public void KeyUp(){
+	public void KeyUp()
+	{
 		lorann.setWay("UP");
-		if (! CheckCollision("UP")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
-				lorann.setWay("UP");
+		if (! CheckCollision("UP"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyRight(){
+	public void KeyRight()
+	{
 		lorann.setWay("RIGHT");
-		if (! CheckCollision("RIGHT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("RIGHT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyLeft(){
+	public void KeyLeft()
+	{
 		lorann.setWay("LEFT");
-		if (! CheckCollision("LEFT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("LEFT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyUpLeft(){
+	public void KeyUpLeft()
+	{
 		lorann.setWay("UPLEFT");
-		if (! CheckCollision("UPLEFT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("UPLEFT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyUpRight(){
+	public void KeyUpRight()
+	{
 		lorann.setWay("UPRIGHT");
-		if (! CheckCollision("UPRIGHT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("UPRIGHT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyDownLeft(){
+	public void KeyDownLeft()
+	{
 		lorann.setWay("DOWNLEFT");
-		if (! CheckCollision("DOWNLEFT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("DOWNLEFT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 
-	public void KeyDownRight(){
+	public void KeyDownRight()
+	{
 		lorann.setWay("DOWNRIGHT");
-		if (! CheckCollision("DOWNRIGHT")){
-			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4)){
+		if (! CheckCollision("DOWNRIGHT"))
+		{
+			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
+			{
 				lorann.move();
 				Objectif();
 			}
 		}
 	}
 	
-	public void ShootFireBall(int x, int y) {
-		if (shoot == false){
+	public void ShootFireBall(int x, int y) 
+	{
+		if (shoot == false)
+			{
 					shoot = true;
 					fireball = new Fire_Ball(x*32, y*32);
 					FireBalls.add(fireball);
 					Shoot();
-				}
-				else if (shoot == true){
-					{
-						FireBallRemove();
-						touch = true;
-					}
+			}
+				else if (shoot == true)
+				{
+					FireBallRemove();
+					touch = true;
 				}
 	}
-	public void PathFinding() {
+	
+	public void PathFinding() 
+	{
 		FollowShoot();
 				if (! prison_d1)
 					pathToLorann1(monster1);
@@ -432,6 +468,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 				if (! prison_d4)
 					pathToLorann4(monster4);
 	}
+	
 	public void GameOverScreen(){
 		if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTRY AG?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {
 					gold = 0;
@@ -440,7 +477,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 				}
 	}
 	
-	public void Shoot(){
+	public void Shoot() {
 
 		if (shoot == true) {
 			if(lorann.getWay() == "DOWN") {
@@ -488,14 +525,12 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 public void FollowShoot(){
-		
-	 String FireBallWay = fireball.getWay();	
-	
+
 		if (shoot == true){
 			if (fireball.FireBall_Type > 4)
 				fireball.FireBall_Type = 0;
 			
-			switch (FireBallWay) {
+			switch (fireball.getWay()) {
 			
 			case "RIGHT":
 					if (CheckFireBall("RIGHT") == false && touch == false)

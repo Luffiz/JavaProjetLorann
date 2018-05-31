@@ -32,38 +32,44 @@ public class Mobile_Elements {
 	}
 	
 	public void move() {
-		switch (this.getWay()) {
+		
+		switch (this.getWay()) 
+		{
 			case "UP":
-				this.moveUp();
+				this.setY(getY() - 32 );
 				break;
 			case "RIGHT":
-				this.moveRight();
+				this.setX(getX() + 32);
 				break;
 			case "DOWN":
-				this.moveDown();
+				this.setY(getY() + 32 );
 				break;
 			case "LEFT":
-				this.moveLeft();
-				break;
-			case "UPLEFT":
-				this.moveUpLeft();
-				break;
-			case "DOWNLEFT":
-				this.moveDownLeft();
+				this.setX(getX() - 32 );
 				break;
 			case "UPRIGHT":
-				this.moveUpRight();
-				break;
+				this.setY(getY() - 32 );
+				this.setX(getX() + 32);				
+			break;
+			case "UPLEFT":
+				this.setY(getY() - 32 );
+				this.setX(getX() - 32 );				
+			break;
 			case "DOWNRIGHT":
-				this.moveDownRight();
-				break;
+				this.setX(getX() + 32);
+				this.setY(getY() + 32 );
+			break;
+			case "DOWNLEFT":
+				this.setY(getY() + 32 );
+				this.setX(getX() - 32 );				
+			break;
 			default:
 				break;
 		}
 	}
 	
 	
-	void moveUp() {
+	/*void moveUp() {
 		this.setY(getY() - 32 );
 	}
 
@@ -97,6 +103,6 @@ public class Mobile_Elements {
 	void moveUpLeft() {
 		this.setY(getY() - 32 );
 		this.setX(getX() - 32 );
-	}
+	}*/
 }
 
