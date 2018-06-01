@@ -10,7 +10,7 @@ import model.ModelFacade;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
+import view.ViewFrame;
 /**
  * <b> Display of the level selection menu. </b>
  * 
@@ -56,9 +56,8 @@ public class Menu extends JFrame implements ActionListener{
 				if(e.getSource() == choix1) {
 					try {
 						this.setVisible(false);
-				
 						this.controller.start(1);
-						view.ViewFrame frm = new view.ViewFrame(controller.getMap(),1);
+						ViewFrame frm = new view.ViewFrame(this.controller.getMap(), 1);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

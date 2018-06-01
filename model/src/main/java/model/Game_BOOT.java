@@ -39,10 +39,8 @@ public class Game_BOOT extends JPanel implements KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	String Game[][] = new String [24][24];
+	
 	private int level;
-	
-	
-
 	int gold = 0;
 	int lifes = 10;
 	
@@ -86,10 +84,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
  * 
  * @param map
  */
-	public Game_BOOT (String map){
+	public Game_BOOT (String map, int level){
 		
 		Game_BOOT.map = map;
 		this.setBackground(Color.BLACK);
+		this.level = level;
 		Menu_Level();
 		setFocusable(true);
 		addKeyListener(this);
@@ -278,6 +277,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		catch(Exception ex){}
 		g.setColor(Color.WHITE);
 		g.setFont(Font_level);
+		//this.level = 1;
 		g.drawString("LEVEL : " + this.level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
 
 		repaint();

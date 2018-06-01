@@ -39,7 +39,7 @@ public class ViewFrame extends JFrame implements IBoard {
 		this.setSize(800, 550);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.add(new Game_BOOT(map));
+		this.add(new Game_BOOT(map, level));
 		this.setVisible(true);
 		this.setResizable(false);
 		
