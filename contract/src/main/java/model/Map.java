@@ -1,9 +1,9 @@
 package model;
 
 /**
- * <h1>The Class Example.</h1>
+ * <h1>The Class Map.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author ptorc
  * @version 1.0
  */
 public class Map {
@@ -15,12 +15,12 @@ public class Map {
     private String map;
 
     /**
-     * Instantiates a new example.
+     * Instantiates a new map.
      *
      * @param id
      *            the id
      * @param map
-     *            the name
+     *            the map
      */
     public Map(final int id, final String map) {
         super();
@@ -38,22 +38,22 @@ public class Map {
     }
 
     /**
-     * Gets the name.
+     * Gets the map.
      *
-     * @return the name
+     * @return the map
      */
     public String getMap() {
         return this.map;
     }
 
     /**
-     * Sets the name.
+     * Sets the map.
      *
-     * @param name
-     *            the new name
+     * @param map
+     *            the new map
      */
-    public void setName(final String name) {
-        this.map = name;
+    public void setName(final String map) {
+        this.map = map;
     }
 
     /*

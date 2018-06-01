@@ -47,7 +47,6 @@ public class ControllerFacade implements IController {
     public void start(int lvl) throws SQLException {
     	
     	this.map = this.getModel().getMapById(lvl).toString();
-    	//System.out.println(getMap());
     }
 
     /**

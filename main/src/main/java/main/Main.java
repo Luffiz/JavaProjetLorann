@@ -1,12 +1,5 @@
 package main;
 
-import java.sql.SQLException;
-
-import controller.ControllerFacade;
-import model.ModelFacade;
-import showboard.BoardFrame;
-import view.ViewFacade;
-import view.ViewFrame;
 import view.Menu;
 
 /**
@@ -15,7 +8,8 @@ import view.Menu;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public abstract class Main {
+public abstract class Main
+{
 
     /**
      * The main method.
@@ -23,23 +17,9 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) {
-    	
-    	//view.ViewFrame frm = new view.ViewFrame();
-
-    //	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-    	
-    	
-       // try {
-        	Menu menu = new Menu();
-            //controller.start(1);
-
-    		//System.out.println(controller.getMap());
-           // view.ViewFrame frm = new view.ViewFrame(controller.getMap());
-     //   } catch (final SQLException exception) {
-       //     exception.printStackTrace();
-    //    }
+    public static void main(final String[] args)
+    {
+       	Menu menu = new Menu();
     }
-
 }
 

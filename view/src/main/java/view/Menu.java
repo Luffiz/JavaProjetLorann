@@ -24,12 +24,10 @@ public class Menu extends JFrame implements ActionListener{
 	    	private Game_BOOT boot;
 	    	
 	    	public Menu() {
-	    	  //  this.boot = new Game_BOOT(controller.getMap());
 	    		this.setTitle("Menu");
 	    		this.setSize(300, 150);
 	    	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    	    this.setLocationRelativeTo(null);
-	    	    //Ajout du bouton à notre content pane
 	    	    choix1.addActionListener(this);
 	    	    pan.add(choix1);
 	    	    choix2.addActionListener(this);
@@ -47,8 +45,6 @@ public class Menu extends JFrame implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				int choix=0;
-				//while(choix==0) {
 				if(e.getSource() == choix1) {
 					try {
 						this.setVisible(false);
@@ -59,11 +55,9 @@ public class Menu extends JFrame implements ActionListener{
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					System.out.println("Vous avez cliqué 1.");
 			
 				}
 				if(e.getSource() == choix2) {
-					System.out.println("Vous avez cliqué 2.");
 				
 					try {
 						this.setVisible(false);
@@ -75,7 +69,6 @@ public class Menu extends JFrame implements ActionListener{
 					}
 				}
 				if(e.getSource() == choix3) {
-					System.out.println("Vous avez cliqué 3.");
 			
 					try {
 						this.setVisible(false);
@@ -87,7 +80,6 @@ public class Menu extends JFrame implements ActionListener{
 					}
 				}
 				if(e.getSource() == choix4) {
-					System.out.println("Vous avez cliqué 4.");
 					try {
 						this.setVisible(false);
 						this.controller.start(4);
@@ -98,7 +90,6 @@ public class Menu extends JFrame implements ActionListener{
 					}
 				}
 				if(e.getSource() == choix5) {
-					System.out.println("Vous avez cliqué 5.");
 					try {
 						this.setVisible(false);
 						controller.start(5);
@@ -107,16 +98,8 @@ public class Menu extends JFrame implements ActionListener{
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				//}
 				}
 				
 			}
-			
-	    	
-	    	
-	    //	public int choixlvl() {
-	    		
-	    		// return choix;
-	    			
-	    //	}
+
 }
