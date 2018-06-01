@@ -27,6 +27,9 @@ import model.Monster_4;
 import model.Door_out;
 import model.Purse;
 
+import model.*;
+
+
 
 public class Game_BOOT extends JPanel implements KeyListener {
 	
@@ -36,7 +39,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	String Game[][] = new String [24][24];
-	int level = 1;
+	private int level;
+	
+	
+
 	int gold = 0;
 	int lifes = 10;
 	
@@ -81,6 +87,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		
 		this.map = map;
 		this.setBackground(Color.BLACK);
+		this.level = level;
 		Menu_Level();
 		setFocusable(true);
 		addKeyListener(this);
@@ -90,6 +97,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	
 	public void Menu_Level() {
 		try{
+			
 			int x=0, y=0, i=0;
 			touch = false;
 			shoot = false;
@@ -264,7 +272,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		catch(Exception ex){}
 		g.setColor(Color.WHITE);
 		g.setFont(Font_level);
-		g.drawString("LEVEL : " + level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
+		g.drawString("LEVEL : " + this.level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
 
 		repaint();
 	}
@@ -460,13 +468,13 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	{
 		FollowShoot();
 				if (! prison_d1)
-					pathToLorann1(monster1);
+					go_to_Lorann(monster1);
 				if (! prison_d2)
-					pathToLorann2(monster2);
+					go_to_Lorann(monster2);
 				if (! prison_d3)
-					pathToLorann3(monster3);
+					go_to_Lorann(monster3);
 				if (! prison_d4)
-					pathToLorann4(monster4);
+					go_to_Lorann(monster4);
 	}
 	
 	public void GameOverScreen(){
@@ -475,50 +483,67 @@ public class Game_BOOT extends JPanel implements KeyListener {
 					lifes = 10;
 					Menu_Level();
 				}
+		else {
+			System.exit(0);
+		}
 	}
 	
 	public void Shoot() {
-
+		Rectangle recFire;
+		Rectangle recBoneS;
+		Rectangle recBoneV;
+		Rectangle recBoneH;
+		
+		recFire = fireball.getBounds();
+		recBoneH = boneH.getBounds();
+		recBoneS = boneS.getBounds();
+		recBoneV = boneV.getBounds();
+		
 		if (shoot == true) {
-			if(lorann.getWay() == "DOWN") {
-				fireball.setY(lorann.getY() - 32 );
-				fireball.setX(lorann.getX());
-				fireball.setWay("UP");
-			}
-			else if(lorann.getWay() == "UP") {
-				fireball.setY(lorann.getY() + 32 );
-				fireball.setX(lorann.getX());	
-				fireball.setWay("DOWN");
-			}
-			else if(lorann.getWay() == "LEFT") {
-				fireball.setY(lorann.getY());
-				fireball.setX(lorann.getX() + 32);
-				fireball.setWay("RIGHT");
-			}
-			else if(lorann.getWay() == "RIGHT") {
-				fireball.setY(lorann.getY());
-				fireball.setX(lorann.getX()- 32);	
-				fireball.setWay("LEFT");
-			}
-			else if (lorann.getWay() == "DOWNRIGHT") {
-				fireball.setY(lorann.getY() - 32 );
-				fireball.setX(lorann.getX() - 32);	
-				fireball.setWay("UPLEFT");
-			}
-			else if (lorann.getWay() == "DOWNLEFT") {
-				fireball.setY(lorann.getY() - 32 );
-				fireball.setX(lorann.getX() + 32);	
-				fireball.setWay("UPRIGHT");
-			}
-			else if (lorann.getWay() == "UPRIGHT") {
-				fireball.setY(lorann.getY() + 32 );
-				fireball.setX(lorann.getX()- 32);	
-				fireball.setWay("UPLEFT");
-			}
-			else if (lorann.getWay() == "UPLEFT") {
-				fireball.setY(lorann.getY() + 32 );
-				fireball.setX(lorann.getX() + 32);	
-				fireball.setWay("DOWNRIGHT");
+			if (!recFire.intersects(recBoneH) || !recFire.intersects(recBoneV) || !recFire.intersects(recBoneS)) {
+				switch(lorann.getWay()) 
+				{
+				case "DOWN":
+					fireball.setY(lorann.getY() - 32 );
+					fireball.setX(lorann.getX());
+					fireball.setWay("UP");
+					break;
+				case "UP":
+					fireball.setY(lorann.getY() + 32 );
+					fireball.setX(lorann.getX());
+					fireball.setWay("DOWN");
+					break;
+				case "LEFT":
+					fireball.setY(lorann.getY());
+					fireball.setX(lorann.getX() + 32);
+					fireball.setWay("RIGHT");
+					break;
+				case "RIGHT":
+					fireball.setY(lorann.getY());
+					fireball.setX(lorann.getX() - 32);
+					fireball.setWay("LEFT");
+					break;
+				case "DOWNRIGHT":
+					fireball.setY(lorann.getY() - 32);
+					fireball.setX(lorann.getX() - 32);
+					fireball.setWay("UPLEFT");
+					break;
+				case "DOWNLEFT":
+					fireball.setY(lorann.getY() - 32 );
+					fireball.setX(lorann.getX() + 32);
+					fireball.setWay("UPRIGHT");
+					break;
+				case "UPRIGHT":
+					fireball.setY(lorann.getY() + 32 );
+					fireball.setX(lorann.getX() - 32);
+					fireball.setWay("UPLEFT");
+					break;
+				case "UPLEFT":
+					fireball.setY(lorann.getY() + 32 );
+					fireball.setX(lorann.getX() + 32);
+					fireball.setWay("UPRIGHT");
+					break;
+				}
 			}
 		}
 	}
@@ -541,7 +566,7 @@ public void FollowShoot(){
 					{
 						CheckFireBall(fireball.getWay());
 						fireball.FireBall_Type++;
-						pathToLorann1(fireball);
+						go_to_Lorann(fireball);
 						FireBallRemove();
 					}
 			break;
@@ -556,7 +581,7 @@ public void FollowShoot(){
 					{
 						CheckFireBall(fireball.getWay());
 						fireball.FireBall_Type++;
-						pathToLorann1(fireball);
+						go_to_Lorann(fireball);
 						FireBallRemove();
 					}
 			break;
@@ -571,7 +596,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -586,7 +611,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -601,7 +626,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -616,7 +641,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -631,7 +656,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -646,7 +671,7 @@ public void FollowShoot(){
 				{
 					CheckFireBall(fireball.getWay());
 					fireball.FireBall_Type++;
-					pathToLorann1(fireball);
+					go_to_Lorann(fireball);
 					FireBallRemove();
 				}
 			break;
@@ -912,7 +937,6 @@ public void Objectif(){
 		Rectangle ouvertRec = outdoor.getBounds();
 
 		if(lorannRec.intersects(ouvertRec)){
-			level++;
 			if (outdoor.getState() == "CLOSED")
 				lifes--;
 			Menu_Level();
@@ -998,6 +1022,13 @@ public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 			return true;
 		}
 	}
+	for(int i=0;i<Door_out1.size();i++){
+		outdoor = (Door_out) Door_out1.get(i);
+		Rectangle DoorOut = outdoor.getBounds();
+		if(mobileRec.intersects(DoorOut)){
+			return true;
+		}
+	}
 
 	
 		if (mobile == monster1){
@@ -1060,7 +1091,7 @@ public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 	return false;
 }
 
-public void pathToLorann1(Mobile_Elements mobile){
+public void go_to_Lorann(Mobile_Elements mobile){
 
 	int PlusRapide;
 	PlusRapide = 1500;
@@ -1117,159 +1148,9 @@ public void pathToLorann1(Mobile_Elements mobile){
 			mobile.setWay("RIGHT");
 		}
 	}
-
-
-	switch (mobile.getWay()){
-
-	case "UPLEFT" :
-		mobile.move();
-		break;
-
-	case "UPRIGHT" : 
-		mobile.move();
-		break;
-
-	case "DOWNLEFT" : 
-		mobile.move();
-		break;
-
-	case "DOWNRIGHT" : 
-		mobile.move();
-		break;
-
-	case "DOWN" : 
-		mobile.move();
-		break;
-
-	case "LEFT" : 
-		mobile.move();
-		break;
-
-	case "UP" : 
-		mobile.move();
-		break;
-
-	case "RIGHT" :
-		mobile.move();
-		break;
-
-	default: 
-		break;
-	}
+	mobile.move();
 }
 
-
-public void pathToLorann2(Mobile_Elements mobile){
-
-	int PlusRapide;
-	PlusRapide = 1500;
-
-	if (! MonsterCollision("UPLEFT",mobile)){
-		if (PlusRapide > Math.abs((lorann.getX()-(mobile.getX()-32)))+Math.abs((lorann.getY()-(mobile.getY()-32)))){
-			PlusRapide = Math.abs((lorann.getX()-(mobile.getX()-32)))+Math.abs((lorann.getY()-(mobile.getY()-32)));
-			mobile.setWay("UPLEFT");
-		}
-	}
-	if(! MonsterCollision("UPRIGHT",mobile)){
-		if (PlusRapide > Math.abs((lorann.getX()-(mobile.getX()+32)))+Math.abs((lorann.getY()-(mobile.getY()-32)))){
-			PlusRapide = Math.abs((lorann.getX()-(mobile.getX()+32)))+Math.abs((lorann.getY()-(mobile.getY()-32)));
-			mobile.setWay("UPRIGHT");
-		}
-	}
-	if(! MonsterCollision("DOWNLEFT",mobile)){
-		if (PlusRapide > Math.abs((lorann.getX()-(mobile.getX()-32)))+Math.abs((lorann.getY()-(mobile.getY()+32)))){
-			PlusRapide = Math.abs((lorann.getX()-(mobile.getX()-32)))+Math.abs((lorann.getY()-(mobile.getY()+32)));
-			mobile.setWay("DOWNLEFT");
-		}
-	}
-	if(! MonsterCollision("DOWNRIGHT",mobile)){
-		if (PlusRapide > Math.abs((lorann.getX()-(mobile.getX()+32)))+Math.abs((lorann.getY()-(mobile.getY()+32)))){
-			PlusRapide = Math.abs((lorann.getX()-(mobile.getX()+32)))+Math.abs((lorann.getY()-(mobile.getY()+32)));
-			mobile.setWay("DOWNRIGHT");
-		}
-	}
-
-	switch (mobile.getWay()){
-
-	case "UPLEFT" :
-		mobile.move();
-		break;
-
-	case "UPRIGHT" : 
-		mobile.move();
-		break;
-
-	case "DOWNLEFT" : 
-		mobile.move();
-		break;
-
-	case "DOWNRIGHT" : 
-		mobile.move();
-		break;
-
-	default: 
-		break;
-	}
-}
-
-public void pathToLorann3(Mobile_Elements mobile){
-	if(mobile.getX()<lorann.getX()){
-		if (! MonsterCollision("RIGHT", mobile)) {
-			mobile.setWay("RIGHT");
-			mobile.move();
-		}
-	}
-	else if(mobile.getX()>lorann.getX()){
-		if (! MonsterCollision("LEFT", mobile)) {
-			mobile.setWay("LEFT");
-			mobile.move();
-		}
-	}
-	else if (mobile.getX() == lorann.getX()){
-		if(mobile.getY()>lorann.getY()){
-			if (! MonsterCollision("UP", mobile)) {
-				mobile.setWay("UP");
-				mobile.move();
-			}
-		}
-		else if(mobile.getY()<lorann.getY()){
-			if (! MonsterCollision("DOWN", mobile)) {
-				mobile.setWay("DOWN");
-				mobile.move();
-			}
-		}
-	}
-}
-
-public void pathToLorann4(Mobile_Elements mobile){
-
-	if(mobile.getY()<lorann.getY()){
-		if (! MonsterCollision("DOWN", mobile)) {
-			mobile.setWay("DOWN");
-			mobile.move();
-		}
-	}
-	else if(mobile.getY()>lorann.getY()){
-		if (! MonsterCollision("UP", mobile)) {
-			mobile.setWay("UP");
-			mobile.move();
-		}
-	}
-	else if (mobile.getY() == lorann.getY()){
-		if(mobile.getX()>lorann.getX()){
-			if (! MonsterCollision("LEFT", mobile)) {
-				mobile.setWay("LEFT");
-				mobile.move();
-			}
-		}
-		else if(mobile.getY()<lorann.getY()){
-			if (! MonsterCollision("RIGHT", mobile)) {
-				mobile.setWay("RIGHT");
-				mobile.move();
-			}
-		}
-	}
-}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
