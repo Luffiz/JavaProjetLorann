@@ -26,8 +26,8 @@ import model.Monster_3;
 import model.Monster_4;
 import model.Door_out;
 import model.Purse;
-
 import model.*;
+
 
 
 public class Game_BOOT extends JPanel implements KeyListener {
@@ -38,7 +38,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	String Game[][] = new String [24][24];
-	int level = 1;
+	private int level;
+	
+	
+
 	int gold = 0;
 	int lifes = 10;
 	
@@ -83,6 +86,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		
 		this.map = map;
 		this.setBackground(Color.BLACK);
+		this.level = level;
 		Menu_Level();
 		setFocusable(true);
 		addKeyListener(this);
@@ -92,6 +96,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	
 	public void Menu_Level() {
 		try{
+			
 			int x=0, y=0, i=0;
 			touch = false;
 			shoot = false;
@@ -213,6 +218,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
+	
 	public void paint (Graphics g){
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -265,7 +271,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		catch(Exception ex){}
 		g.setColor(Color.WHITE);
 		g.setFont(Font_level);
-		g.drawString("LEVEL : " + level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
+		g.drawString("LEVEL : " + this.level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
 
 		repaint();
 	}
@@ -475,6 +481,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 					lifes = 10;
 					Menu_Level();
 				}
+		else {
+			System.exit(0);
+		}
 	}
 	
 	public void Shoot() {
@@ -912,7 +921,6 @@ public void Objectif(){
 		Rectangle ouvertRec = outdoor.getBounds();
 
 		if(lorannRec.intersects(ouvertRec)){
-			level++;
 			if (outdoor.getState() == "CLOSED")
 				lifes--;
 			Menu_Level();

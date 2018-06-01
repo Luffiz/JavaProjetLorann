@@ -27,19 +27,18 @@ public abstract class Main {
     	
     	//view.ViewFrame frm = new view.ViewFrame();
 
-    	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    //	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
     	
-    	int choix = 0;
     	
-        try {
-        	//Menu menu = new Menu();
-            controller.start(1);
+       // try {
+        	Menu menu = new Menu();
+            //controller.start(1);
 
     		//System.out.println(controller.getMap());
-            view.ViewFrame frm = new view.ViewFrame(controller.getMap());
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
-        }
+           // view.ViewFrame frm = new view.ViewFrame(controller.getMap());
+     //   } catch (final SQLException exception) {
+       //     exception.printStackTrace();
+    //    }
     }
 
 }
