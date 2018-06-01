@@ -351,7 +351,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 				if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 				{
 					lorann.move();
-					Objectif();
+					gather();
 				}
 		}
 	}
@@ -365,7 +365,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -378,7 +378,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -391,7 +391,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -404,7 +404,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -417,7 +417,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -430,7 +430,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -443,7 +443,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			if (!MonsterEat(monster1) && !MonsterEat(monster2) && ! MonsterEat(monster3) && ! MonsterEat(monster4))
 			{
 				lorann.move();
-				Objectif();
+				gather();
 			}
 		}
 	}
@@ -548,7 +548,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 	
-public void FollowShoot(){
+	public void FollowShoot(){
 
 		if (shoot == true){
 			if (fireball.FireBall_Type > 4)
@@ -560,6 +560,7 @@ public void FollowShoot(){
 					if (CheckFireBall("RIGHT") == false && touch == false)
 					{
 						fireball.FireBall_Type++;
+						CheckFireBall(fireball.getWay());
 						fireball.move();
 					}
 					else 
@@ -575,6 +576,7 @@ public void FollowShoot(){
 					if (CheckFireBall("LEFT") == false && touch == false)
 					{
 						fireball.FireBall_Type++;
+						CheckFireBall(fireball.getWay());
 						fireball.move();
 					}
 					else 
@@ -590,6 +592,7 @@ public void FollowShoot(){
 				if (CheckFireBall("UP") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -605,6 +608,7 @@ public void FollowShoot(){
 				if (CheckFireBall("DOWN") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -620,6 +624,7 @@ public void FollowShoot(){
 				if (CheckFireBall("DOWNLEFT") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -635,6 +640,7 @@ public void FollowShoot(){
 				if (CheckFireBall("DOWNRIGHT") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -650,6 +656,7 @@ public void FollowShoot(){
 				if (CheckFireBall("UPRIGHT") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -665,6 +672,7 @@ public void FollowShoot(){
 				if (CheckFireBall("UPLEFT") == false && touch == false)
 				{
 					fireball.FireBall_Type++;
+					CheckFireBall(fireball.getWay());
 					fireball.move();
 				}
 				else 
@@ -679,7 +687,7 @@ public void FollowShoot(){
 		}	
 	}
 
-public boolean CheckFireBall(String direction){
+	public boolean CheckFireBall(String direction){
 
 	if (shoot == true){
 		Rectangle sortilegesRec;
@@ -790,7 +798,37 @@ public boolean CheckFireBall(String direction){
 	return false;
 }
 
-public boolean CheckCollision(String direction){
+	public boolean FireBallRemove(){
+		Rectangle sortilegesRec;
+		sortilegesRec = fireball.getBounds();
+		if (fireball.getX()<lorann.getX()){
+			sortilegesRec.setBounds(sortilegesRec.x +32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
+		}
+		else if (fireball.getX()>lorann.getX()){
+			sortilegesRec.setBounds(sortilegesRec.x -32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
+		}
+		else if (fireball.getY()>lorann.getY()){
+			sortilegesRec.setBounds(sortilegesRec.x,sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
+		}
+		else if (fireball.getY()<lorann.getY()){
+			sortilegesRec.setBounds(sortilegesRec.x ,sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
+		}
+
+		Rectangle lorannRec;
+		lorannRec = lorann.getBounds();
+		if(sortilegesRec.intersects(lorannRec)){
+			touch = false;
+			shoot = false;
+			fireball.setX(1000);
+			fireball.setY(400);
+			FireBalls.remove(0);
+			return true;
+		}
+		return false;
+	}
+
+	
+	public boolean CheckCollision(String direction){
 	Rectangle lorannRec;
 	lorannRec = lorann.getBounds();
 	if (direction == "RIGHT"){
@@ -852,9 +890,7 @@ public boolean CheckCollision(String direction){
 	return false;
 }
 
-
-
-public boolean MonsterEat(Mobile_Elements mobile){
+	public boolean MonsterEat(Mobile_Elements mobile){
 	Rectangle mobileRec;
 	mobileRec = mobile.getBounds();
 	if (mobile.getX()<lorann.getX()){
@@ -880,36 +916,9 @@ public boolean MonsterEat(Mobile_Elements mobile){
 	}
 	return false;
 }
-public boolean FireBallRemove(){
-	Rectangle sortilegesRec;
-	sortilegesRec = fireball.getBounds();
-	if (fireball.getX()<lorann.getX()){
-		sortilegesRec.setBounds(sortilegesRec.x +32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
-	}
-	else if (fireball.getX()>lorann.getX()){
-		sortilegesRec.setBounds(sortilegesRec.x -32,sortilegesRec.y, sortilegesRec.width, sortilegesRec.height);
-	}
-	else if (fireball.getY()>lorann.getY()){
-		sortilegesRec.setBounds(sortilegesRec.x,sortilegesRec.y -32, sortilegesRec.width, sortilegesRec.height);
-	}
-	else if (fireball.getY()<lorann.getY()){
-		sortilegesRec.setBounds(sortilegesRec.x ,sortilegesRec.y +32, sortilegesRec.width, sortilegesRec.height);
-	}
+	
+	public void gather(){
 
-	Rectangle lorannRec;
-	lorannRec = lorann.getBounds();
-	if(sortilegesRec.intersects(lorannRec)){
-		touch = false;
-		shoot = false;
-		fireball.setX(1000);
-		fireball.setY(400);
-		FireBalls.remove(0);
-		return true;
-	}
-	return false;
-}
-
-public void Objectif(){
 	Rectangle lorannRec;
 	lorannRec = lorann.getBounds();
 	for(int i=0;i<Purses.size();i++){
@@ -943,7 +952,8 @@ public void Objectif(){
 		}
 	}
 }
-public boolean MonsterCollision(String direction, Mobile_Elements mobile){
+	
+	public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 	Rectangle mobileRec;
 	mobileRec = mobile.getBounds();
 
@@ -1091,7 +1101,7 @@ public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 	return false;
 }
 
-public void go_to_Lorann(Mobile_Elements mobile){
+	public void go_to_Lorann(Mobile_Elements mobile){
 
 	int PlusRapide;
 	PlusRapide = 1500;
