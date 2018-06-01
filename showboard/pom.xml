@@ -3,7 +3,9 @@
   <parent>
     <groupId>fr.exia</groupId>
     <artifactId>lorann</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
+    <relativePath>../lorann</relativePath>
   </parent>
   <artifactId>showboard</artifactId>
+  <packaging>pom</packaging>
 </project>

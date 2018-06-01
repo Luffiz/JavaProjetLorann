@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.exia</groupId>
   <artifactId>lorann</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
   <name>lorann</name>
   <description>Base project to start BoulderDash software</description>
@@ -20,14 +20,6 @@
       </plugin>
      </plugins>
   </build>
-  <modules>
-    <module>contract</module>
-    <module>controller</module>
-    <module>model</module>
-    <module>view</module>
-    <module>main</module>
-    <module>showboard</module>
-  </modules>
   <reporting>
     <plugins>
       <plugin>
@@ -73,4 +65,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <modules>
+  	<module>../contract</module>
+  	<module>../controller</module>
+  	<module>../main</module>
+  	<module>../model</module>
+  	<module>../showboard</module>
+  	<module>../view</module>
+  </modules>
 </project>

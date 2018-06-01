@@ -3,15 +3,18 @@
   <parent>
     <groupId>fr.exia</groupId>
     <artifactId>lorann</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
+    <relativePath>../lorann</relativePath>
   </parent>
   <artifactId>controller</artifactId>
   <name>lorann.controller</name>
+  <packaging>pom</packaging>
+  <version>0.0.1-SNAPSHOT</version>
   <dependencies>
-    <dependency>
-      <groupId>fr.exia</groupId>
-      <artifactId>contract</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+  	<dependency>
+  		<groupId>fr.exia</groupId>
+  		<artifactId>contract</artifactId>
+  		<version>1.0</version>
+  	</dependency>
   </dependencies>
 </project>
