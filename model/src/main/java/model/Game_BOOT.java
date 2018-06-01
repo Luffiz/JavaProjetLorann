@@ -27,8 +27,6 @@ import model.Monster_4;
 import model.Door_out;
 import model.Purse;
 
-import model.*;
-
 
 public class Game_BOOT extends JPanel implements KeyListener {
 	
@@ -213,6 +211,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
+	
 	public void paint (Graphics g){
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -326,6 +325,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 		else if (Key == KeyEvent.VK_R)
 		{
+			gold = 0;
 			Menu_Level();
 		}
 		if (lifes == 0)
@@ -521,7 +521,6 @@ public class Game_BOOT extends JPanel implements KeyListener {
 				fireball.setWay("DOWNRIGHT");
 			}
 		}
-
 	}
 	
 public void FollowShoot(){
@@ -850,6 +849,7 @@ public boolean MonsterEat(Mobile_Elements mobile){
 	lorannRec = lorann.getBounds();
 	if(mobileRec.intersects(lorannRec)){
 		lifes--;
+		gold = 0;
 		Menu_Level();
 		return true;
 	}
