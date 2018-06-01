@@ -22,23 +22,4 @@ public interface IModel {
      */
     Map getMapById(int id) throws SQLException;
 
-    /**
-     * Gets the example by name.
-     *
-     * @param name
-     *            the name
-     * @return the example by name
-     * @throws SQLException
-     *             the SQL exception
-     */
-    Map getExampleByName(String name) throws SQLException;
-
-    /**
-     * Gets the all examples.
-     *
-     * @return the all examples
-     * @throws SQLException
-     *             the SQL exception
-     */
-    List<Map> getAllExamples() throws SQLException;
 }

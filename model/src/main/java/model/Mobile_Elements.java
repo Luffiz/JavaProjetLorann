@@ -37,6 +37,7 @@ public class Mobile_Elements {
 	}
 	
 	/**
+	 * Getter returning the Y coordinate
 	 * 
 	 * @return
 	 */
@@ -45,7 +46,7 @@ public class Mobile_Elements {
 	}
 	
 	/**
-	 * 
+	 * Setter defining the Y coordinate
 	 * @param y
 	 */
 	public void setY(int y) {
@@ -53,6 +54,7 @@ public class Mobile_Elements {
 	}
 	
 	/**
+	 * Getter returning the current direction of the element
 	 * 
 	 * @return
 	 */
@@ -61,7 +63,7 @@ public class Mobile_Elements {
 	}
 	
 	/**
-	 * 
+	 * Setter defining the current direction of the element
 	 * @param way
 	 */
 	public void setWay(String way) {
@@ -69,16 +71,17 @@ public class Mobile_Elements {
 	}
 	
 	/**
+	 * Getter returning the HitBox of the mobile element.
 	 * 
 	 * @return
 	 */
-	public Rectangle getBounds() { //pour les collisions
+	public Rectangle getBounds() {
 		Rectangle HitBox = new Rectangle(x,y,32,32);
 		return HitBox;
 	}
 	
 	/**
-	 * 
+	 * Method managing the movements of the element.
 	 */
 	public void move() {
 		

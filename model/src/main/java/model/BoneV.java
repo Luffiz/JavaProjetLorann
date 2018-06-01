@@ -19,7 +19,7 @@ public class BoneV extends Walls{
 	Image BoneV;
 	
 	/**
-	 * Load the image of the vertical to the coordinates passed in parameters from the sprite in the program files
+	 * Load the image of the vertical bone to the coordinates passed in parameters from the sprite in the program files
 	 * @param OriginX X coordinate of the bone
 	 * @param OriginY Y coordinate of the bone
 	 */
