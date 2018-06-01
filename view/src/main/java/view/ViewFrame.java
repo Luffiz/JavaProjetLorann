@@ -34,8 +34,8 @@ public class ViewFrame extends JFrame implements IBoard {
      * @param decorated
      *            the decorated
      */
-    public ViewFrame(String map) {
-    	
+    public ViewFrame(String map, int level) {
+    //	this.setVisible(false);
     	this.setTitle("Lorann");
 		this.setSize(800, 550);//definie taille de la fenetre (ici on veux 12 images de 34 px)
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

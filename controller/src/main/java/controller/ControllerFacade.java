@@ -7,7 +7,6 @@ import view.IView;
 import javax.swing.JButton;
 
 
-
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
  *
@@ -23,6 +22,7 @@ public class ControllerFacade implements IController {
     private final IModel model;
 
     public String map;
+
     /**
      * Instantiates a new controller facade.
      *
@@ -46,11 +46,8 @@ public class ControllerFacade implements IController {
    
     public void start(int lvl) throws SQLException {
     	
-    	
-    	
     	this.map = this.getModel().getMapById(lvl).toString();
     	//System.out.println(getMap());
-
     }
 
     /**
