@@ -31,7 +31,7 @@ public class ControllerFacade implements IController {
      * @param model
      *            the model
      */
-    public ControllerFacade(final IView view, final IModel model) {
+    public ControllerFacade(final IModel model, final IView view) {
         super();
         this.view = view;
         this.model = model;
@@ -45,9 +45,7 @@ public class ControllerFacade implements IController {
      */
    
     public void start(int lvl) throws SQLException {
-    	
-    	
-    	
+
     	this.map = this.getModel().getMapById(lvl).toString();
     	//System.out.println(getMap());
 
@@ -61,7 +59,7 @@ public class ControllerFacade implements IController {
     public IView getView() {
         return this.view;
     }
-
+    
     /**
      * Gets the model.
      *

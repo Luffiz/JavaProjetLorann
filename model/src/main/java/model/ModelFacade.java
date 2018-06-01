@@ -1,10 +1,10 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import model.dao.MapDAO;
-import model.dao.MapInitDAO;
+import model.Game_BOOT;;
+
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -18,7 +18,7 @@ public final class ModelFacade implements IModel {
      * Instantiates a new model facade.
      */
     public ModelFacade() {
-        super();
+    	new Game_BOOT();
     }
 
     /*
@@ -30,33 +30,11 @@ public final class ModelFacade implements IModel {
         return MapDAO.getMapById(id);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    @Override
-    public Map getExampleByName(final String name) throws SQLException {
-        return MapDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Map> getAllExamples() throws SQLException {
-        return MapDAO.getAllExamples();
-    }
+   
+   
     
 
     
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getMapAll()
-     */
-    public List<MapInit> getMapAll() throws SQLException {
-        return MapInitDAO.getMapAll();
-    }
     
 
 }

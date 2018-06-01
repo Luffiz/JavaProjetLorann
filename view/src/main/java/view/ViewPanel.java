@@ -23,6 +23,7 @@ import model.BoneV;
 import model.CrystalBall;
 import model.Door_out;
 import model.Fire_Ball;
+import model.Game_BOOT;
 import model.Lorann_Mobile;
 import model.Monster_1;
 import model.Monster_2;
@@ -35,7 +36,15 @@ public class ViewPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	int level = 1;
 	int gold = 0;
-	int lifes = 11;
+	int lifes = 10;
+	
+	boolean shoot = false;
+	boolean touch = false;
+	boolean prison_d1 = false;
+	boolean prison_d2 = false;
+	boolean prison_d3 = false;
+	boolean prison_d4 = false;
+	
 	private static ArrayList<BoneS> BonesS;
 	private static ArrayList<BoneV> BonesV;
 	private static ArrayList<BoneH> BonesH;
@@ -47,7 +56,10 @@ public class ViewPanel extends JPanel implements Observer {
 	private static ArrayList<Monster_4> Monsters4;
 	private static ArrayList<Door_out> Door_out1;
 	private static ArrayList<Fire_Ball> FireBalls;
+	private static String map;
 
+	
+	Game_BOOT test;
 	BoneS boneS;
 	BoneV boneV;
 	BoneH boneH;
@@ -62,6 +74,7 @@ public class ViewPanel extends JPanel implements Observer {
 	Fire_Ball fireball;
 	Font Font_level = new Font("Arial", Font.BOLD, 30);
 	FileReader fr;
+	
 	
 	/** The squares represents the square of the board. */
     private ISquare[][]         squares;
@@ -89,8 +102,8 @@ public class ViewPanel extends JPanel implements Observer {
     /**
      * Instantiates a new board panel.
      */
-    ViewPanel() {
-        super();
+    public ViewPanel() 
+    {
         this.setBackground(Color.BLACK);
         this.pawns = new ArrayList<>();
         this.noImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
@@ -98,16 +111,19 @@ public class ViewPanel extends JPanel implements Observer {
         graphics.setColor(Color.darkGray);
         graphics.fillRect(0, 0, 2, 2);
         setFocusable(true);
-		
-        //paint(Graphics g);
+		//addKeyListener(this);
     }
-	
-   
-
+    
+    @Override
     public void paint (Graphics g) {
-		super.paint(g);
+    	
+		System.out.println("prepaintou");
+		System.out.println(Game_BOOT.getBonesS().size() + " View");
+		//super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
+		System.out.println("pre-paint");
 
+		
 		for(int i = 0; i< BonesS.size(); i++){
 			boneS = (BoneS) BonesS.get(i);
 			g2d.drawImage(boneS.getImage(), boneS.getX(), boneS.getY(), null);
@@ -157,14 +173,14 @@ public class ViewPanel extends JPanel implements Observer {
 		g.setColor(Color.RED);
 		g.setFont(Font_level);
 		g.drawString("LEVEL : " + level + " / Gold : " + gold + " / Lifes : " + lifes,240, 400);
+		System.out.println("POST-paint");
 
 		repaint();
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+			repaint();		
 	}
 
 }

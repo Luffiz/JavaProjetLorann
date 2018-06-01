@@ -14,5 +14,6 @@ public interface IView {
      * @param message
      *            the message
      */
-    void displayMessage(String message);
+    
+    
 }

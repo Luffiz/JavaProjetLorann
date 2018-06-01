@@ -1,42 +1,22 @@
 package model;
 
-import java.awt.Color;
+
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Observable;
 
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-
-import model.BoneS;
-import model.BoneH;
-import model.BoneV;
-import model.CrystalBall;
-import model.Fire_Ball;
-import model.Lorann_Mobile;
-import model.Monster_1;
-import model.Monster_2;
-import model.Monster_3;
-import model.Monster_4;
-import model.Door_out;
-import model.Purse;
 
 import model.*;
 
 
-public class Game_BOOT extends JPanel implements KeyListener {
+public class Game_BOOT extends Observable implements KeyListener {
 	
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	String Game[][] = new String [24][24];
 	int level = 1;
 	int gold = 0;
@@ -79,20 +59,21 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	FileReader fr;
 	
 
-	public Game_BOOT (String map){
+	public Game_BOOT (){
 		
-		this.map = map;
-		this.setBackground(Color.BLACK);
+		//this.setBackground(Color.BLACK);
+		System.out.println("IN");
 		Menu_Level();
-		setFocusable(true);
-		addKeyListener(this);
+		System.out.println("OUT");
 		
+		//setFocusable(true);
+		//addKeyListener(this);
 }
 	
 	
 	public void Menu_Level() {
-		try{
-			int x=0, y=0, i=0;
+		try {
+			int x=0, y=0;
 			touch = false;
 			shoot = false;
 			prison_d1 = false;
@@ -115,11 +96,13 @@ public class Game_BOOT extends JPanel implements KeyListener {
 
 			
 
-			//String str = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
-			String str = this.map;
+			String str = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
+			//String str = this.map;
+			//System.out.println(str);
+			
+			System.out.println("BEFORE READ");
 			
 			for (int t = 0; t < str.length() ; t++) {
-				
 				char strImg = str.charAt(t);
 
 				switch(strImg) {
@@ -208,69 +191,19 @@ public class Game_BOOT extends JPanel implements KeyListener {
 					x++;
 				}
 			}
+			setChanged();
+			System.out.println(hasChanged());
+			notifyObservers();
+			System.out.println(getBonesH().size() + " Model");
+			System.out.println("AFTER READ");
+			System.out.println("NOTIFY");
 		}
 		catch(Exception ex) {
-			repaint();
+			
+			
 		}
+		
 	}
-	public void paint (Graphics g){
-		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g;
-
-		for(int i = 0; i< BonesS.size(); i++){
-			boneS = (BoneS) BonesS.get(i);
-			g2d.drawImage(boneS.getImage(), boneS.getX(), boneS.getY(), null);
-		}
-		for(int i = 0; i< BonesH.size(); i++){
-			boneH = (BoneH) BonesH.get(i);
-			g2d.drawImage(boneH.getImage(), boneH.getX(), boneH.getY(), null);
-		}
-		for(int i = 0; i< BonesV.size(); i++){
-			boneV = (BoneV) BonesV.get(i);
-			g2d.drawImage(boneV.getImage(), boneV.getX(), boneV.getY(), null);
-		}
-		for(int i = 0; i< CrystalBalls.size(); i++){
-			crystalball = (CrystalBall) CrystalBalls.get(i);
-			g2d.drawImage(crystalball.getImage(), crystalball.getX(), crystalball.getY(), null);
-		}
-		for(int i = 0; i< Purses.size(); i++){
-			purses = (Purse) Purses.get(i);
-			g2d.drawImage(purses.getImage(), purses.getX(),purses.getY(), null);
-		}
-		for(int i = 0; i< Monsters1.size(); i++){
-			monster1 = (Monster_1) Monsters1.get(i);
-			g2d.drawImage(monster1.getImage(), monster1.getX(),monster1.getY(), null);
-		}
-		for(int i = 0; i< Monsters2.size(); i++){
-			monster2 = (Monster_2) Monsters2.get(i);
-			g2d.drawImage(monster2.getImage(), monster2.getX(),monster2.getY(), null);
-		}
-		for(int i = 0; i< Monsters3.size(); i++){
-			monster3 = (Monster_3) Monsters3.get(i);
-			g2d.drawImage(monster3.getImage(), monster3.getX(),monster3.getY(), null);
-		}
-		for(int i = 0; i< Monsters4.size(); i++){
-			monster4 = (Monster_4) Monsters4.get(i);
-			g2d.drawImage(monster4.getImage(), monster4.getX(),monster4.getY(), null);
-		}
-		for(int i = 0; i< FireBalls.size(); i++){
-			fireball = (Fire_Ball) FireBalls.get(i);
-			g2d.drawImage(fireball.getImage(), fireball.getX(),fireball.getY(), null);
-		}
-
-		try{
-			g2d.drawImage(lorann.getImage(), lorann.getX(), lorann.getY(), null);
-			g2d.drawImage(outdoor.getImage(), outdoor.getX(), outdoor.getY(), null);
-		}
-		catch(Exception ex){}
-		g.setColor(Color.WHITE);
-		g.setFont(Font_level);
-		g.drawString("LEVEL : " + level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
-
-		repaint();
-	}
-
-	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -332,8 +265,8 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		{			
 			GameOverScreen();
 		}
-		repaint();
-	}
+		setChanged();
+		notifyObservers();	}
 	
 	public void KeyDown()
 	{
@@ -469,12 +402,13 @@ public class Game_BOOT extends JPanel implements KeyListener {
 					pathToLorann4(monster4);
 	}
 	
-	public void GameOverScreen(){
-		if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTRY AG?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {
+	public void GameOverScreen()
+	{
+		/*if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTRY AG?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {*/
 					gold = 0;
 					lifes = 10;
 					Menu_Level();
-				}
+				
 	}
 	
 	public void Shoot() {
@@ -1118,8 +1052,8 @@ public void pathToLorann1(Mobile_Elements mobile){
 		}
 	}
 
-
-	switch (mobile.getWay()){
+	mobile.move();
+	/*switch (mobile.getWay()){
 
 	case "UPLEFT" :
 		mobile.move();
@@ -1155,7 +1089,7 @@ public void pathToLorann1(Mobile_Elements mobile){
 
 	default: 
 		break;
-	}
+	}*/
 }
 
 
@@ -1188,8 +1122,9 @@ public void pathToLorann2(Mobile_Elements mobile){
 			mobile.setWay("DOWNRIGHT");
 		}
 	}
+	mobile.move();
 
-	switch (mobile.getWay()){
+	/*switch (mobile.getWay()){
 
 	case "UPLEFT" :
 		mobile.move();
@@ -1209,7 +1144,7 @@ public void pathToLorann2(Mobile_Elements mobile){
 
 	default: 
 		break;
-	}
+	}*/
 }
 
 public void pathToLorann3(Mobile_Elements mobile){
@@ -1282,4 +1217,61 @@ public void pathToLorann4(Mobile_Elements mobile){
 		
 	}
 
+
+	public static ArrayList<BoneS> getBonesS() {
+		return BonesS;
+	}
+
+	public static ArrayList<BoneV> getBonesV() {
+		return BonesV;
+	}
+
+	public static ArrayList<BoneH> getBonesH() {
+		return BonesH;
+	}
+
+	public static ArrayList<CrystalBall> getCrystalBalls() {
+		return CrystalBalls;
+	}
+
+
+	public static ArrayList<Purse> getPurses() {
+		return Purses;
+	}
+
+
+	public static ArrayList<Monster_1> getMonsters1() {
+		return Monsters1;
+	}
+
+
+	public static ArrayList<Monster_2> getMonsters2() {
+		return Monsters2;
+	}
+
+
+	public static ArrayList<Monster_3> getMonsters3() {
+		return Monsters3;
+	}
+
+
+	public static ArrayList<Monster_4> getMonsters4() {
+		return Monsters4;
+	}
+
+
+	public static ArrayList<Door_out> getDoor_out1() {
+		return Door_out1;
+	}
+
+
+	public static ArrayList<Fire_Ball> getFireBalls() {
+		return FireBalls;
+	}
+
+
+	
+
+
+	
 }

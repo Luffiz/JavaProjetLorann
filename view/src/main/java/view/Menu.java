@@ -40,8 +40,9 @@ public class Menu extends JFrame implements ActionListener{
 	    	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				
 				int choix=0;
+				
 				while(choix==0) {
 				if(e.getSource() == choix1) {
 					System.out.println("Vous avez cliqué 1.");
@@ -63,15 +64,11 @@ public class Menu extends JFrame implements ActionListener{
 					System.out.println("Vous avez cliqué 5.");
 					choix=5;
 				}
+				
 				}
 				
 			}
-			
 	    	
 	    	
-	    //	public int choixlvl() {
-	    		
-	    		// return choix;
-	    			
-	    //	}
+	    
 }

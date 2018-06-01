@@ -23,24 +23,18 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) {
-    	
-    	//view.ViewFrame frm = new view.ViewFrame();
-
-    	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    public static void main(final String[] args) throws SQLException {
     	
     	int choix = 0;
-    	
-        try {
-        	//Menu menu = new Menu();
+        
+        	new ControllerFacade(new ModelFacade(), new ViewFacade());
+        	/*Menu menu = new Menu();
             controller.start(1);
-
-    		//System.out.println(controller.getMap());
-            view.ViewFrame frm = new view.ViewFrame(controller.getMap());
-        } catch (final SQLException exception) {
+            view.Vie} catch {}
+        /*catch (final SQLException exception) 
+        {
             exception.printStackTrace();
-        }
+        }*/
     }
-
 }
 
