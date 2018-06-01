@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 
 
 /**
- * <b> Walls is a class that manages the hitbox of objects. </b>
+ * <b> Walls is a class that manages the hitbox of objects that can not be crossed. </b>
  *  
  * @author ptorc
  *
