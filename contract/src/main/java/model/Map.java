@@ -11,7 +11,7 @@ public class Map {
     /** The id. */
     private final int id;
 
-    /** The name. */
+    /** The map. */
     private String map;
 
     /**
