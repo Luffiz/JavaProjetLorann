@@ -102,7 +102,6 @@ public class ViewPanel extends JPanel implements Observer {
         //paint(Graphics g);
     }
 	
-   
 
     public void paint (Graphics g) {
 		super.paint(g);

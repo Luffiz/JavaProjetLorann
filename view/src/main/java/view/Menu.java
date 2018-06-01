@@ -5,14 +5,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import controller.ControllerFacade;
-import model.Game_BOOT;
 import model.ModelFacade;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-
+/**
+ * <b> Display of the level selection menu. </b>
+ * 
+ * @author ptorc
+ *
+ */
 public class Menu extends JFrame implements ActionListener{
 	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 		 private JPanel pan = new JPanel();
@@ -21,8 +25,10 @@ public class Menu extends JFrame implements ActionListener{
 	    	private JButton choix3 = new JButton("Level 3");
 	    	private JButton choix4 = new JButton("Level 4");
 	    	private JButton choix5 = new JButton("Level 5");
-	    	private Game_BOOT boot;
 	    	
+	    	/**
+	    	 * Initialize the menu object.
+	    	 */
 	    	public Menu() {
 	    		this.setTitle("Menu");
 	    		this.setSize(300, 150);
@@ -41,7 +47,9 @@ public class Menu extends JFrame implements ActionListener{
 	    	    this.setContentPane(pan);
 	    	    this.setVisible(true);
 	    	}
-	    	
+	    	/**
+	    	 * Retrieves the map corresponding to the choice made.
+	    	 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub

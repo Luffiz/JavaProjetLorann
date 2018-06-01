@@ -27,16 +27,16 @@ import model.Monster_4;
 import model.Door_out;
 import model.Purse;
 
-import model.*;
 
 
-
+/**
+ * <b> Game management, sprite display and loading elements </b>
+ * @author ptorc
+ *
+ */
 public class Game_BOOT extends JPanel implements KeyListener {
 	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	String Game[][] = new String [24][24];
 	private int level;
@@ -82,23 +82,27 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	Font Font_level = new Font("Arial", Font.BOLD, 30);
 	FileReader fr;
 	
-
+/**
+ * 
+ * @param map
+ */
 	public Game_BOOT (String map){
 		
-		this.map = map;
+		Game_BOOT.map = map;
 		this.setBackground(Color.BLACK);
-		this.level = level;
 		Menu_Level();
 		setFocusable(true);
 		addKeyListener(this);
 		
 }
 	
-	
+	/**
+	 * 
+	 */
 	public void Menu_Level() {
 		try{
 			
-			int x=0, y=0, i=0;
+			int x=0, y=0;
 			touch = false;
 			shoot = false;
 			prison_d1 = false;
@@ -122,7 +126,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			
 
 			//String str = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
-			String str = this.map;
+			String str = Game_BOOT.map;
 			
 			for (int t = 0; t < str.length() ; t++) {
 				
@@ -219,7 +223,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
-	
+	/**
+	 * 
+	 */
 	public void paint (Graphics g){
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -278,7 +284,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	
-
+	/***
+	 * 
+	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
 		int Key = e.getKeyChar();
@@ -343,6 +351,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		repaint();
 	}
 	
+	/**
+	 * 
+	 */
 	public void KeyDown()
 	{
 		lorann.setWay("DOWN");
@@ -356,7 +367,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 					
-
+	/**
+	 * 
+	 */
 	public void KeyUp()
 	{
 		lorann.setWay("UP");
@@ -369,7 +382,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			}
 		}
 	}
-
+	
+	/**
+	 * 
+	 */
 	public void KeyRight()
 	{
 		lorann.setWay("RIGHT");
@@ -383,6 +399,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void KeyLeft()
 	{
 		lorann.setWay("LEFT");
@@ -396,6 +415,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void KeyUpLeft()
 	{
 		lorann.setWay("UPLEFT");
@@ -409,6 +431,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void KeyUpRight()
 	{
 		lorann.setWay("UPRIGHT");
@@ -421,7 +446,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			}
 		}
 	}
-
+	/**
+	 * 
+	 */
 	public void KeyDownLeft()
 	{
 		lorann.setWay("DOWNLEFT");
@@ -435,6 +462,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void KeyDownRight()
 	{
 		lorann.setWay("DOWNRIGHT");
@@ -448,6 +478,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public void ShootFireBall(int x, int y) 
 	{
 		if (shoot == false)
@@ -464,6 +499,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 				}
 	}
 	
+	/**
+	 * 
+	 */
 	public void PathFinding() 
 	{
 		FollowShoot();
@@ -477,6 +515,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 					go_to_Lorann(monster4);
 	}
 	
+	/**
+	 * 
+	 */
 	public void GameOverScreen(){
 		if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTRY AG?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {
 					gold = 0;
@@ -488,6 +529,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	public void Shoot() {
 		Rectangle recFire;
 		Rectangle recBoneS;
@@ -548,6 +592,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	public void FollowShoot(){
 
 		if (shoot == true){
@@ -687,6 +734,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}	
 	}
 
+	/**
+	 * 
+	 * @param direction
+	 * @return
+	 */
 	public boolean CheckFireBall(String direction){
 
 	if (shoot == true){
