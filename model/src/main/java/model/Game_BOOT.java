@@ -38,8 +38,14 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Array containing all objects in the loaded map
+	 */
 	String Game[][] = new String [24][24];
 	
+	/**
+	 * In-game variables such as level, gold, or number of lives remaining.
+	 */
 	private int level;
 	int gold = 0;
 	int lifes = 10;
@@ -63,8 +69,14 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	private static ArrayList<Door_out> Door_out1;
 	private static ArrayList<Fire_Ball> FireBalls;
 	
+	/**
+	 * Map as a string
+	 */
 	private static String map;
 
+	/**
+	 * Objects containing the sprites of the objects stored in the Game table
+	 */
 	BoneS boneS;
 	BoneV boneV;
 	BoneH boneH;
@@ -78,11 +90,12 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	Door_out outdoor;
 	Fire_Ball fireball;
 	Font Font_level = new Font("Arial", Font.BOLD, 30);
-	FileReader fr;
 	
 /**
+ * Starts reading the map and displaying it with the corresponding sprites.
  * 
- * @param map
+ * @param map contain the map as a character string.
+ * @param level level of the game.
  */
 	public Game_BOOT (String map, int level){
 		
@@ -96,7 +109,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 }
 	
 	/**
-	 * 
+	 * Reading the map character string and implementing the objects in the map of the displayed map.
 	 */
 	public void Menu_Level() {
 		try{
@@ -222,8 +235,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
+	
 	/**
-	 * 
+	 * Graphical management of the map.
 	 */
 	public void paint (Graphics g){
 		super.paint(g);
@@ -285,7 +299,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 
 	
 	/***
-	 * 
+	 * Retrieving keyboard input and launching monster and Lorann movement methods.
 	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -352,7 +366,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Method of moving Lorann down.
 	 */
 	public void KeyDown()
 	{
@@ -368,7 +382,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 					
 	/**
-	 * 
+	 * Method of moving Lorann up.
 	 */
 	public void KeyUp()
 	{
@@ -384,7 +398,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Method of moving Lorann right.
 	 */
 	public void KeyRight()
 	{
@@ -400,7 +414,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * 
+	 * Method of moving Lorann left.
 	 */
 	public void KeyLeft()
 	{
@@ -416,7 +430,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * 
+	 * Method of moving Lorann diagonally up left.
 	 */
 	public void KeyUpLeft()
 	{
@@ -432,7 +446,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * 
+	 * Method of moving Lorann diagonally up right.
 	 */
 	public void KeyUpRight()
 	{
@@ -447,7 +461,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 	/**
-	 * 
+	 * Method of moving Lorann diagonally down left.
 	 */
 	public void KeyDownLeft()
 	{
@@ -463,7 +477,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * 
+	 * Method of moving Lorann diagonally down right.
 	 */
 	public void KeyDownRight()
 	{
@@ -479,9 +493,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
-	 * @param x
-	 * @param y
+	 * Lorann Fireball Fire Management Method
+	 * @param x X coordinate of the new fireball
+	 * @param y Y coordinate of the new fireball
 	 */
 	public void ShootFireBall(int x, int y) 
 	{
@@ -500,7 +514,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Method bringing the monsters towards Lorann
 	 */
 	public void PathFinding() 
 	{
@@ -516,10 +530,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Game Over Display.
 	 */
 	public void GameOverScreen(){
-		if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTRY AG?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {
+		if (JOptionPane.showConfirmDialog(this,"GAME OVER.\nTry Again ?","",JOptionPane.YES_NO_OPTION)  == JOptionPane.YES_OPTION) {
 					gold = 0;
 					lifes = 10;
 					Menu_Level();
@@ -530,7 +544,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Method placing the fireball according to Lorann's position and direction
 	 */
 	public void Shoot() {
 		Rectangle recFire;
@@ -593,7 +607,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	
 	/**
-	 * 
+	 * Method that manages the color, movement and recovery of the fireball.
 	 */
 	public void FollowShoot(){
 
@@ -735,9 +749,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 
 	/**
+	 * Method that removes monsters in case of contact with the fireball.
 	 * 
-	 * @param direction
-	 * @return
+	 * @param direction fireball's current direction
+	 * @return a Boolean value indicating whether the fireball is fired.
 	 */
 	public boolean CheckFireBall(String direction){
 
@@ -850,6 +865,10 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	return false;
 }
 
+	/**
+	 * Make the fireball disappear.
+	 * @return a Boolean value indicating if the fireball has been removed.
+	 */
 	public boolean FireBallRemove(){
 		Rectangle sortilegesRec;
 		sortilegesRec = fireball.getBounds();
@@ -879,7 +898,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		return false;
 	}
 
-	
+	/**
+	 * Method indicating if Lorann collides with another object.
+	 * @param direction Lorann's current direction
+	 * @return Boolean value indicating if there is a collision
+	 */
 	public boolean CheckCollision(String direction){
 	Rectangle lorannRec;
 	lorannRec = lorann.getBounds();
@@ -942,6 +965,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	return false;
 }
 
+	/**
+	 * Method indicating if the monster ate Lorann.
+	 * @param mobile Object containing the relevant mobile element
+	 * @return Boolean value indicating if the monster ate Lorann
+	 */
 	public boolean MonsterEat(Mobile_Elements mobile){
 	Rectangle mobileRec;
 	mobileRec = mobile.getBounds();
@@ -968,7 +996,9 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	}
 	return false;
 }
-	
+	/**
+	 * Method managing the recovery of the gold, the crystal ball and at the same time the opening of the door.
+	 */
 	public void gather(){
 
 	Rectangle lorannRec;
@@ -1004,7 +1034,13 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		}
 	}
 }
-	
+	/**
+	 * Method indicating if there was a collision with one of the monsters.
+	 * 
+	 * @param direction Current direction of the monster
+	 * @param mobile Concerned monster
+	 * @return Boolean value indicating whether there has been a collision
+	 */
 	public boolean MonsterCollision(String direction, Mobile_Elements mobile){
 	Rectangle mobileRec;
 	mobileRec = mobile.getBounds();
@@ -1153,6 +1189,11 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	return false;
 }
 
+	/**
+	 * Method calculating the shortest direction towards Lorann according to its position.
+	 * 
+	 * @param mobile Lorann as a mobile element
+	 */
 	public void go_to_Lorann(Mobile_Elements mobile){
 
 	int PlusRapide;

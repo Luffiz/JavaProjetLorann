@@ -67,6 +67,10 @@ public class ControllerFacade implements IController {
         return this.model;
     }
     
+    /**
+     * Gets the map
+     * @return the map
+     */
     public String getMap(){
         return this.map;
     }

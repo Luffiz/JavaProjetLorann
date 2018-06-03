@@ -39,7 +39,7 @@ public class Mobile_Elements {
 	/**
 	 * Getter returning the Y coordinate
 	 * 
-	 * @return
+	 * @return the Y coordinate
 	 */
 	public int getY() {
 		return y;
@@ -47,7 +47,7 @@ public class Mobile_Elements {
 	
 	/**
 	 * Setter defining the Y coordinate
-	 * @param y
+	 * @param y Y coordinate of the element
 	 */
 	public void setY(int y) {
 		this.y = y;
@@ -56,15 +56,15 @@ public class Mobile_Elements {
 	/**
 	 * Getter returning the current direction of the element
 	 * 
-	 * @return
+	 * @return the current direction of the element
 	 */
 	public String getWay() {
 		return Way;
 	}
 	
 	/**
-	 * Setter defining the current direction of the element
-	 * @param way
+	 * Setter defining the new direction of the element
+	 * @param way the new direction of the element
 	 */
 	public void setWay(String way) {
 		this.Way = way;
@@ -73,7 +73,7 @@ public class Mobile_Elements {
 	/**
 	 * Getter returning the HitBox of the mobile element.
 	 * 
-	 * @return
+	 * @return the element hitbox
 	 */
 	public Rectangle getBounds() {
 		Rectangle HitBox = new Rectangle(x,y,32,32);

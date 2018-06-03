@@ -18,21 +18,11 @@ public class ViewFrame extends JFrame implements IBoard {
 	 /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -6563585351564617603L;
 
-    /** The initial frame size. */
-    private static final int  defaultFrameSize = 700;
-    private  ViewPanel viewPanel;
-
-    /** The board panel. */
-
     /**
-     * Instantiates a new board frame.
-     * @param b 
-     * @param string 
-     *
-     * @param title
-     *            the title of the frame
-     * @param decorated
-     *            the decorated
+     * Showing the game window and launching the game.
+     * 
+     * @param map Map recovered in the database
+     * @param level Level of the game
      */
     public ViewFrame(String map, int level) {
     	this.setTitle("Lorann");
