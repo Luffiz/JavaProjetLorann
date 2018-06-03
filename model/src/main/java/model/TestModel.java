@@ -19,13 +19,15 @@ public class TestModel extends TestCase {
 	@Test
 	public void testGameBoard() {
 		String map = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
+		int lvl = 1;
 		
-		new Game_BOOT(map);
+		new Game_BOOT(map, lvl);
 	}
 	protected void setUp() throws Exception{
 		String map = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
+		int lvl = 1;
 		super.setUp();
-		gameboard = new Game_BOOT(map);
+		gameboard = new Game_BOOT(map, lvl);
 	}
 
 	public void testMonster_1(){
