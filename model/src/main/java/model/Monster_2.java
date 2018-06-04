@@ -12,10 +12,6 @@ import javax.swing.ImageIcon;
  * @version 1.0
  */
 public class Monster_2 extends Mobile_Elements{/**
-	 * Return the image of the 2nd monster
-	 * 
-	 * @return the image of the 2nd monster
-	 */
 	
 	/**
 	 * Picture of the 2nd monster
