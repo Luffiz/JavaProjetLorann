@@ -18,8 +18,12 @@ import view.ViewFrame;
  *
  */
 public class Menu extends JFrame implements ActionListener{
-	final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-		 private JPanel pan = new JPanel();
+	/**
+	 * 
+	 */
+		private static final long serialVersionUID = 1L;
+			final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+		 	private JPanel pan = new JPanel();
 	    	private JButton choix1 = new JButton("Level 1");
 	    	private JButton choix2 = new JButton("Level 2");
 	    	private JButton choix3 = new JButton("Level 3");

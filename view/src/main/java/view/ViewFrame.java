@@ -19,7 +19,7 @@ import showboard.ISquare;
  * @author ptorc
  *
  */
-public class ViewFrame extends JFrame implements IBoard {
+public class ViewFrame extends JFrame {
 	 /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -6563585351564617603L;
 
@@ -39,46 +39,7 @@ public class ViewFrame extends JFrame implements IBoard {
 		this.setResizable(false);
 		
     }
-        
-
-	
-	
-
-	@Override
-	public void addSquare(ISquare square, int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addPawn(IPawn pawn) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Observer getObserver() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setDimension(Dimension dimension) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Dimension getDimension() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setDisplayFrame(Rectangle displayFrame) {
-		// TODO Auto-generated method stub
-		
-	}
+  
 }
 
 
