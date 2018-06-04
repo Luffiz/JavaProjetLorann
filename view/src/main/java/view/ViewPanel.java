@@ -30,6 +30,12 @@ import model.Monster_3;
 import model.Monster_4;
 import model.Purse;
 
+/**
+ * <b> Manages the objects in the ViewFrame. </b>
+ * 
+ * @author ptorc
+ *
+ */
 public class ViewPanel extends JPanel implements Observer {
 	
 	private static final long serialVersionUID = 1L;

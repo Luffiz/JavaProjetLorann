@@ -13,7 +13,12 @@ import showboard.IBoard;
 import showboard.IPawn;
 import showboard.ISquare;
 
-
+/**
+ * <b> Manages the window and its parameters. </b>
+ * 
+ * @author ptorc
+ *
+ */
 public class ViewFrame extends JFrame implements IBoard {
 	 /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -6563585351564617603L;
