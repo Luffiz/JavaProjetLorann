@@ -25,8 +25,8 @@ public class Monster_1 extends Mobile_Elements{
 	 * @param OriginY Y coordinate of the 1st monster
 	 */
 	public Monster_1(int OriginX, int OriginY){
-		x = OriginX;
-		y = OriginY;
+		this.x = OriginX;
+		this.y = OriginY;
 		
 		ImageIcon Monster1 = new ImageIcon("../sprite/monster_1.png");
 		Monster_1 = Monster1.getImage();
@@ -40,6 +40,7 @@ public class Monster_1 extends Mobile_Elements{
 	public Image getImage(){
 		return Monster_1;
 	}
-
+	
+	
 
 }

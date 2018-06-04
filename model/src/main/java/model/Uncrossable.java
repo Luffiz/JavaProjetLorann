@@ -3,7 +3,7 @@ package model;
 import java.awt.Rectangle;
 
 /**
- * <b> Uncrossable is a class that manages the hitbox of the objects wich will be recovered. </b>
+ * <b> Uncrossable is a class that manages the HitBox of the objects which will be recovered. </b>
  *  
  * @author ptorc
  *

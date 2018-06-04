@@ -8,6 +8,7 @@
   </parent>
   <artifactId>model</artifactId>
   <name>lorann.model</name>
+  
   <dependencies>
     <dependency>
       <groupId>fr.exia</groupId>
@@ -25,6 +26,5 @@
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
-  <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
 </project>

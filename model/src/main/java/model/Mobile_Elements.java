@@ -73,7 +73,7 @@ public class Mobile_Elements {
 	/**
 	 * Getter returning the HitBox of the mobile element.
 	 * 
-	 * @return the element hitbox
+	 * @return the element HitBox
 	 */
 	public Rectangle getBounds() {
 		Rectangle HitBox = new Rectangle(x,y,32,32);

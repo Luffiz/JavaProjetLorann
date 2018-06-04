@@ -51,7 +51,7 @@ public class ExampleTest {
 
     @Test
     public void testToString() {
-        final String expected = "1 : Example test";
+        final String expected = "Example test";
         assertEquals(expected, this.example.toString());
     }
 

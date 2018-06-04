@@ -44,6 +44,5 @@ public class Monster_2 extends Mobile_Elements{/**
 	public Image getImage(){
 		return Monster_2;
 	}
-
-
+	
 }

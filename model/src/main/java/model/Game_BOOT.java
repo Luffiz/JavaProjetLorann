@@ -72,7 +72,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	/**
 	 * Map as a string
 	 */
-	private static String map;
+	private String map;
 
 	/**
 	 * Objects containing the sprites of the objects stored in the Game table
@@ -99,7 +99,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
  */
 	public Game_BOOT (String map, int level){
 		
-		Game_BOOT.map = map;
+		this.map = map;
 		this.setBackground(Color.BLACK);
 		this.level = level;
 		Menu_Level();
@@ -138,7 +138,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 			
 
 			//String str = "011111111011111111111110\r\n23______82___9__4__5___2\r\n0____11052______2__5___2\r\n2________2______2__5___2\r\n2________2__76__2______S\r\n2_______________01111112\r\n2_11111110______5______2\r\n2________2______2______2\r\n2___555__0111_1105011_12\r\n2________5________5____2\r\n011111111011111111111110";
-			String str = Game_BOOT.map;
+			String str = this.map;
 			
 			for (int t = 0; t < str.length() ; t++) {
 				
@@ -1264,6 +1264,14 @@ public class Game_BOOT extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public  String getMap() {
+		return map;
 	}
 
 }
