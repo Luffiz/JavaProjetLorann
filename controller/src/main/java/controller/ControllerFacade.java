@@ -21,7 +21,7 @@ public class ControllerFacade implements IController {
     /** The model. */
     private final IModel model;
 
-    public String map;
+    private String map;
 
     /**
      * Instantiates a new controller facade.
