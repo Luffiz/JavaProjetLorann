@@ -17,7 +17,8 @@ import view.ViewFrame;
  * @author ptorc
  *
  */
-public class Menu extends JFrame implements ActionListener{
+public class Menu extends JFrame implements ActionListener
+{
 	/**
 	 * 
 	 */
@@ -33,7 +34,8 @@ public class Menu extends JFrame implements ActionListener{
 	    	/**
 	    	 * Initialize the menu object.
 	    	 */
-	    	public Menu() {
+	    	public Menu() 
+	    	{
 	    		this.setTitle("Menu");
 	    		this.setSize(300, 150);
 	    	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,62 +57,72 @@ public class Menu extends JFrame implements ActionListener{
 	    	 * Retrieves the map corresponding to the choice made.
 	    	 */
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if(e.getSource() == choix1) {
-					try {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(e.getSource() == choix1) 
+				{
+					try 
+					{
 						this.setVisible(false);
 						this.controller.start(1);
-						ViewFrame frm = new view.ViewFrame(this.controller.getMap(), 1);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						new view.ViewFrame(this.controller.getMap(), 1);
+					} 
+					catch (SQLException e1) 
+					{
 						e1.printStackTrace();
 					}
-			
 				}
-				if(e.getSource() == choix2) {
-				
-					try {
+				if(e.getSource() == choix2) 
+				{
+					try 
+					{
 						this.setVisible(false);
 						this.controller.start(2);
-						view.ViewFrame frm = new view.ViewFrame(controller.getMap(), 2);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						new view.ViewFrame(this.controller.getMap(), 2);
+					} 
+					catch (SQLException e1) 
+					{
 						e1.printStackTrace();
 					}
 				}
-				if(e.getSource() == choix3) {
-			
-					try {
+				if(e.getSource() == choix3) 
+				{
+					try 
+					{
 						this.setVisible(false);
 						this.controller.start(3);
-						view.ViewFrame frm = new view.ViewFrame(controller.getMap(), 3);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						new view.ViewFrame(this.controller.getMap(), 3);
+					}
+					catch (SQLException e1) 
+					{
 						e1.printStackTrace();
 					}
 				}
-				if(e.getSource() == choix4) {
-					try {
+				if(e.getSource() == choix4) 
+				{
+					try 
+					{
 						this.setVisible(false);
 						this.controller.start(4);
-						view.ViewFrame frm = new view.ViewFrame(controller.getMap(), 4);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						new view.ViewFrame(this.controller.getMap(), 4);
+					} 
+					catch (SQLException e1) 
+					{
 						e1.printStackTrace();
 					}
 				}
-				if(e.getSource() == choix5) {
-					try {
+				if(e.getSource() == choix5) 
+				{
+					try 
+					{
 						this.setVisible(false);
 						controller.start(5);
-						view.ViewFrame frm = new view.ViewFrame(controller.getMap(), 5);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						new view.ViewFrame(this.controller.getMap(), 5);
+					} 
+					catch (SQLException e1) {
 						e1.printStackTrace();
 					}
 				}
-				
 			}
-
+			
 }

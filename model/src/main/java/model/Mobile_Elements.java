@@ -13,7 +13,7 @@ public class Mobile_Elements {
 	/**
 	 * X and Y coordinates of the moving element. 
 	 */
-	public int x, y;
+	public int x = 0, y = 0;
 	
 	/**
 	 * String containing the current direction of the element.

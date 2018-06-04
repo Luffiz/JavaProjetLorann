@@ -30,7 +30,8 @@ public class ViewFrame extends JFrame {
      * @param level Level of the game
      */
     public ViewFrame(String map, int level) {
-    	this.setTitle("Lorann");
+    	final String title_Frame = "Lorann";
+    	this.setTitle(title_Frame);
 		this.setSize(800, 550);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);

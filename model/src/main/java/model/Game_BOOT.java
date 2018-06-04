@@ -291,9 +291,7 @@ public class Game_BOOT extends JPanel implements KeyListener {
 		catch(Exception ex){}
 		g.setColor(Color.WHITE);
 		g.setFont(Font_level);
-		//this.level = 1;
 		g.drawString("LEVEL : " + this.level + " / Gold : " + gold + " / Lifes : " + lifes,100, 400);
-
 		repaint();
 	}
 
