@@ -9,9 +9,6 @@ import javax.swing.JFrame;
 
 import model.Game_BOOT;
 import view.ViewPanel;
-import showboard.IBoard;
-import showboard.IPawn;
-import showboard.ISquare;
 
 /**
  * <b> Manages the window and its parameters. </b>

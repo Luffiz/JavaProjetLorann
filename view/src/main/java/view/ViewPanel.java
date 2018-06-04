@@ -15,8 +15,6 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import showboard.IPawn;
-import showboard.ISquare;
 import model.BoneH;
 import model.BoneS;
 import model.BoneV;
@@ -69,11 +67,6 @@ public class ViewPanel extends JPanel implements Observer {
 	Font Font_level = new Font("Arial", Font.BOLD, 30);
 	FileReader fr;
 	
-	/** The squares represents the square of the board. */
-    private ISquare[][]         squares;
-
-    /** The pawns represents a list of all the pawns on the board. */
-    private final List<IPawn>   pawns;
     /**
      * The dimension is used to known the width and the height of the board. It's used principally
      * with the squares property
@@ -98,7 +91,6 @@ public class ViewPanel extends JPanel implements Observer {
     ViewPanel() {
         super();
         this.setBackground(Color.BLACK);
-        this.pawns = new ArrayList<>();
         this.noImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics = this.noImage.createGraphics();
         graphics.setColor(Color.darkGray);
